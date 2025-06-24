@@ -71,8 +71,12 @@ const Homepage = () => {
         <div className="hero-section">
           <div className="hero-content">
             <h1>Welcome to My Digital Realm</h1>
-            <p>I'm Alex, a full-stack developer passionate about crafting seamless web experiences. Explore my work and let's build something amazing together.</p>
-            <button className="explore-btn">Explore Projects</button>
+            <p>
+  I'm Tazkia, a full-stack developer passionate about crafting seamless, user-focused web experiences. From building powerful backend systems to designing intuitive frontends, I love turning ideas into working products. I'm also deeply interested in Artificial Intelligence and its role in transforming the future of technology.
+</p>
+
+
+            
           </div>
         </div>
       </main>
@@ -95,7 +99,7 @@ const Homepage = () => {
             </svg>
           </a>
         </div>
-        <p>© 2024 Alex's Portfolio. All rights reserved.</p>
+        <p>© 2025 Tazkia's Portfolio. All rights reserved.</p>
       </footer>
     </div>
   );
