@@ -58,7 +58,7 @@ const Contact = () => {
                 </div>
                 <div className="contact-text">
                   <h3>Email</h3>
-                  <p>ethan.carter@email.com</p>
+                  <p>maliktazkia@gmail.com</p>
                 </div>
               </div>
 
@@ -70,7 +70,7 @@ const Contact = () => {
                 </div>
                 <div className="contact-text">
                   <h3>LinkedIn</h3>
-                  <p>linkedin.com/in/ethancarter</p>
+                  <p>https://www.linkedin.com/in/tazkiamalik/</p>
                 </div>
               </div>
 
@@ -82,7 +82,7 @@ const Contact = () => {
                 </div>
                 <div className="contact-text">
                   <h3>GitHub</h3>
-                  <p>github.com/ethancarter</p>
+                  <p>https://github.com/CodedGrimoire</p>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@
 
 /* Contact Page Styles */
 .contact-page {
-  font-family: "Work Sans", "Noto Sans", sans-serif;
+  font-family:'Noto Serif', "Work Sans", "Noto Sans", sans-serif;
   background-color: #14191f;
   color: white;
   min-height: calc(100vh - 70px);
