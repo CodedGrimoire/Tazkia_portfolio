@@ -136,11 +136,14 @@ html::after {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 50%;       /* center horizontally */
+  transform: translateX(-50%);
+  width: 100%;      /* your custom width */
   z-index: 10;
   flex-shrink: 0;
 }
-
 .logo-section {
   display: flex;
   align-items: center;
