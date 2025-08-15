@@ -34,7 +34,7 @@ const projects = [
     image: "../wsa.png",
     githubLink: "",
     livelink: "",
-    videoLink: "",
+    videoLink: "https://drive.google.com/file/d/1xcR1gDCwLOJ-ESR5iPGl1mAAk5Y1I4zi/view?usp=sharing",
     type: "Mobile App",
     tags: ["Flutter", "Supabase","Dart","Firebase"]
   },

@@ -7,6 +7,7 @@ import Contact from './contact/page';
 */
 
 const Homepage = () => {
+  
   return (
     <div className="homepage">
       {/* Animated Background Tech Logos */}
@@ -71,17 +72,21 @@ const Homepage = () => {
           </svg>
         </div>
       </div>
-
-      <main className="main-content">
-        <div className="hero-section">
-          <div className="hero-content">
-            <h1>Welcome to My Digital Realm</h1>
-            <p>
-              I'm Tazkia, a full-stack developer passionate about crafting seamless, user-focused web experiences. From building powerful backend systems to designing intuitive frontends, I love turning ideas into working products. I'm also deeply interested in Artificial Intelligence and its role in transforming the future of technology.
-            </p>
-          </div>
+<main className="main-content">
+  <div className="hero-section">
+    <div className="hero-content">
+      <h1>Welcome to My Digital Realm</h1>
+      <div className="items-box"> 
+        <p>
+          I'm Tazkia, a full-stack developer passionate about creating seamless web experiences, from intuitive frontends to robust backends, with a keen interest in AI and its impact on the future of technology.
+        </p>
+        <div className="image-container">
+          <img src="laptop.png" alt="Laptop" className="laptop-image" />
         </div>
-      </main>
+      </div>
+    </div> {/* Close hero-content */}
+  </div>   {/* Close hero-section */}
+</main>
 
       {/* Biography Section */}
       <section className="biography-section">
