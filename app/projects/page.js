@@ -23,7 +23,8 @@ const skills = [
    "Supabase",
    "PostgreSQL",
    "Dart",
-   "Next"
+   "Next",
+   "AI/ML",
 ];
 
 const projects = [
@@ -66,10 +67,10 @@ const projects = [
     description: "ChartGenie is a conversational AI-powered web application that converts natural language descriptions into interactive diagrams via a chat interface",
     image: "../cg.png",
     githubLink: "https://github.com/CodedGrimoire/ChartGenie",
-    livelink: "",
+    livelink: "https://chart-genie-eta.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs"]
+    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS"]
   },
   {
     id: 5,
@@ -80,7 +81,7 @@ const projects = [
     livelink: "https://mythos-fcgz.vercel.app/",
     videoLink: "",
     type: "Web App",
-    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS"]
+    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML"]
   },
   {
     id: 6,
@@ -91,7 +92,7 @@ const projects = [
     livelink: "https://resume-gpt-frontend-tau.vercel.app/",
     videoLink: "",
    type: "Web App",
-     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS"]
+     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML"]
   },
   {
     id: 7,
@@ -102,7 +103,7 @@ const projects = [
     livelink: "https://chefgptfrontend2.vercel.app/",
     videoLink: "",
    type: "Web App",
-     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS"]
+     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML"]
   }
 ];
 
