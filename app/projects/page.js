@@ -42,13 +42,13 @@ const projects = [
   {
     id: 2,
     name: "Cinephile",
-    description: "Cinephile is a modern movie app for exploring films, viewing details, and managing a personalized watchlist.",
+    description: "Cinephile is a modern movie app for exploring films, viewing details, and managing a personalized watchlist with AI powered movie suggestion.",
     image: "../cine.png",
     githubLink: "https://github.com/CodedGrimoire/cinephile",
     livelink: "https://cinephile-xoym.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["React", "JavaScript", "REST APIs", "Firebase"]
+    tags: ["React", "JavaScript", "REST APIs", "Firebase","AI/ML"]
   },
   {
     id: 3,
