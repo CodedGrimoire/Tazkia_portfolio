@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './projects.css';
 
 // =========================
@@ -37,7 +37,7 @@ const projects = [
     livelink: "",
     videoLink: "https://drive.google.com/file/d/1xcR1gDCwLOJ-ESR5iPGl1mAAk5Y1I4zi/view?usp=sharing",
     type: "Mobile App",
-    tags: ["Flutter", "Supabase","Dart","Firebase"]
+    tags: ["Flutter", "Supabase","Dart","Firebase","REST APIs"]
   },
   {
     id: 2,
@@ -59,7 +59,7 @@ const projects = [
     livelink: "https://tragedy-aid-management-467q.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["React", "Responsive Design", "UI/UX Design", "JavaScript","Firebase","PostgreSQL"]
+    tags: ["React", "Responsive Design", "UI/UX Design", "JavaScript","Firebase","PostgreSQL","REST APIs"]
   },
   {
     id: 4,
@@ -70,7 +70,7 @@ const projects = [
     livelink: "https://chart-genie-eta.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS"]
+    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS","REST APIs"]
   },
   {
     id: 5,
@@ -114,6 +114,7 @@ const Project = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const projectsSectionRef = useRef(null);
 
   // Filter projects by selected skill
   const filteredProjects = selectedSkill
@@ -130,6 +131,12 @@ const Project = () => {
     setSelectedProject(null);
   };
 
+  const handleScrollToProjects = () => {
+    if (projectsSectionRef.current) {
+      projectsSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="projects-page">
       <div className="projects-container">
@@ -139,7 +146,7 @@ const Project = () => {
           <div className="hero-content">
             <h1>Full Stack Developer</h1>
             <p>I create dynamic and responsive web applications. Explore my projects and let's build something amazing together.</p>
-            <button className="cta-btn">View Projects</button>
+            <button className="cta-btn" onClick={handleScrollToProjects}>View Projects</button>
           </div>
         </div>
 
@@ -170,7 +177,7 @@ const Project = () => {
         </section>
 
         {/* Featured Projects */}
-        <section className="featured-projects">
+        <section className="featured-projects" id="featured-projects" ref={projectsSectionRef}>
           <h2>Featured Projects {selectedSkill && `(Filtered by: ${selectedSkill})`}</h2>
           <div className="projects-grid">
             {filteredProjects.map(project => (
@@ -192,6 +199,7 @@ const Project = () => {
                     <span className="type-badge">{project.type}</span>
                   </div>
                 </div>
+                <div className="hover-hint">click to expand</div>
               </div>
             ))}
 
@@ -230,8 +238,8 @@ const Project = () => {
                   <div className="modal-tech-stack">
                     <h4>Tech Stack</h4>
                     <div className="modal-tags">
-                      {selectedProject.tags.map(tag => (
-                        <span key={tag} className="modal-tag">{tag}</span>
+                      {selectedProject.tags.map((tag, index) => (
+                        <span key={`${tag}-${index}`} className="modal-tag">{tag}</span>
                       ))}
                     </div>
                   </div>
@@ -245,7 +253,7 @@ const Project = () => {
                         rel="noopener noreferrer"
                         className="modal-link github-link"
                       >
-                        <span>🔗</span> GitHub
+                        <i className="fa-brands fa-github" /> GitHub
                       </a>
                     )}
                     
@@ -256,7 +264,7 @@ const Project = () => {
                         rel="noopener noreferrer"
                         className="modal-link live-link"
                       >
-                        <span>🚀</span> Live Demo
+                        <i className="fa-solid fa-rocket" /> Live Demo
                       </a>
                     )}
                     
@@ -267,7 +275,7 @@ const Project = () => {
                         rel="noopener noreferrer"
                         className="modal-link video-link"
                       >
-                        <span>📹</span> Video Demo
+                        <i className="fa-solid fa-video" /> Video Demo
                       </a>
                     )}
                   </div>

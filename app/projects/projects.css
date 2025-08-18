@@ -128,12 +128,49 @@ box-shadow: 0 4px 20px #7B68EE;
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(123, 104, 238, 0.2);
   border-color: rgba(123, 104, 238, 0.3);
+}
+.hover-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+}
+
+.project-card:hover .hover-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle press on click */
+.project-card:active {
+  transform: translateY(-3px) scale(0.99);
+}
+
+/* Reveal-on-scroll subtle animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-image {
@@ -349,6 +386,19 @@ box-shadow: 0 4px 20px #7B68EE;
   overflow-y: auto;
   position: relative;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transform-origin: center;
+  animation: modalIn 180ms ease-out;
+}
+
+@keyframes modalIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .modal-close {
