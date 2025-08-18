@@ -55,8 +55,8 @@ const projects = [
     name: "Uddhar",
     description: "The Tragedy Aid Management System streamlines aid distribution and tracking to ensure transparency and efficiency.",
     image: "../tra.png",
-    githubLink: "https://github.com/CodedGrimoire/uddhar",
-    livelink: "",
+    githubLink: "https://github.com/CodedGrimoire/tragedy-aid-management",
+    livelink: "https://tragedy-aid-management-467q.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
     tags: ["React", "Responsive Design", "UI/UX Design", "JavaScript","Firebase","PostgreSQL"]
