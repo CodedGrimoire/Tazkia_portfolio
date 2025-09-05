@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './projects.css';
+import { animate, createScope } from 'animejs';
 
-// =========================
-// Dummy Data Structure
-// =========================
+
 const skills = [
   "React",
   "Node.js",
@@ -65,7 +64,7 @@ const projects = [
     id: 4,
     name: "ChartGenie",
     description: "ChartGenie is a conversational AI-powered web application that converts natural language descriptions into interactive diagrams via a chat interface",
-    image: "../cg.png",
+    image: "../cgb.png",
     githubLink: "https://github.com/CodedGrimoire/ChartGenie",
     livelink: "https://chart-genie-eta.vercel.app/",
     videoLink: "",
@@ -115,6 +114,109 @@ const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const projectsSectionRef = useRef(null);
+
+  // Hero intro animation (v4 API)
+  useEffect(() => {
+    const scope = createScope();
+    scope.add(() => {
+      animate('.hero-content h1', {
+        from: { opacity: 0, translateY: 20 },
+        to: { opacity: 1, translateY: 0 },
+        duration: 700,
+        ease: 'easeOutQuad'
+      });
+      animate('.hero-content p', {
+        from: { opacity: 0, translateY: 20 },
+        to: { opacity: 1, translateY: 0 },
+        duration: 600,
+        delay: 300,
+        ease: 'easeOutQuad'
+      });
+      animate('.hero-content .cta-btn', {
+        from: { opacity: 0, translateY: 20 },
+        to: { opacity: 1, translateY: 0 },
+        duration: 600,
+        delay: 600,
+        ease: 'easeOutQuad'
+      });
+    });
+    return () => scope.revert();
+  }, []);
+
+  // Animate project cards when section enters viewport
+  useEffect(() => {
+    const sectionEl = projectsSectionRef.current;
+    if (!sectionEl) return;
+    const scope = createScope();
+
+    const run = () => {
+      const cards = sectionEl.querySelectorAll('.project-card');
+      scope.add(() => {
+        animate(cards, {
+          from: { opacity: 0, translateY: 16 },
+          to: { opacity: 1, translateY: 0 },
+          delay: (index) => index * 100,
+          duration: 550,
+          ease: 'easeOutCubic'
+        });
+      });
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          run();
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    io.observe(sectionEl);
+    return () => {
+      io.disconnect();
+      scope.revert();
+    };
+  }, []);
+
+  // Re-animate cards when filters change
+  useEffect(() => {
+    const sectionEl = projectsSectionRef.current;
+    if (!sectionEl) return;
+    const scope = createScope();
+    const cards = sectionEl.querySelectorAll('.project-card');
+    scope.add(() => {
+      animate(cards, {
+        from: { opacity: 0, translateY: 12 },
+        to: { opacity: 1, translateY: 0 },
+        delay: (index) => index * 80,
+        duration: 450,
+        ease: 'easeOutQuad'
+      });
+    });
+    return () => scope.revert();
+  }, [selectedSkill]);
+
+  // Modal pop-in animation on open
+  useEffect(() => {
+    const scope = createScope();
+    if (isModalOpen) {
+      scope.add(() => {
+        animate('.modal-overlay', {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+          duration: 200,
+          ease: 'linear'
+        });
+        animate('.modal-content', {
+          from: { opacity: 0, scale: 0.96, translateY: 8 },
+          to: { opacity: 1, scale: 1, translateY: 0 },
+          duration: 300,
+          ease: 'easeOutCubic'
+        });
+      });
+    }
+    return () => scope.revert();
+  }, [isModalOpen]);
 
   // Filter projects by selected skill
   const filteredProjects = selectedSkill
