@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './bio.css';
+import { animate, createScope } from 'animejs';
 
 const Bio = () => {
   const [selectedSkillCategory, setSelectedSkillCategory] = useState('frontend');
@@ -33,6 +34,52 @@ const Bio = () => {
     }, 3000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  // Scroll reveal animations
+  useEffect(() => {
+    const scope = createScope();
+    const revealTargets = document.querySelectorAll(
+      '.profile-section, .bio-description, .skills-section, .education-section, .experience-section'
+    );
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !entry.target.dataset.animated) {
+          entry.target.dataset.animated = 'true';
+
+          scope.add(() => {
+            animate(entry.target, {
+              from: { opacity: 0, translateY: 24 },
+              to: { opacity: 1, translateY: 0 },
+              duration: 600,
+              ease: 'easeOutCubic'
+            });
+
+            // Stagger in skill tags when the skills section enters
+            if (entry.target.classList.contains('skills-section')) {
+              const tags = entry.target.querySelectorAll('.skill-tag');
+              animate(tags, {
+                from: { opacity: 0, translateY: 12 },
+                to: { opacity: 1, translateY: 0 },
+                delay: (index) => index * 60,
+                duration: 400,
+                ease: 'easeOutQuad'
+              });
+            }
+          });
+
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealTargets.forEach((el) => io.observe(el));
+
+    return () => {
+      io.disconnect();
+      scope.revert();
+    };
   }, []);
 
   const openModal = (type, data) => {

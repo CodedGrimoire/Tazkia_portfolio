@@ -24,6 +24,7 @@ const skills = [
    "Dart",
    "Next",
    "AI/ML",
+   "RAG"
 ];
 
 const projects = [
@@ -47,7 +48,7 @@ const projects = [
     livelink: "https://cinephile-xoym.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["React", "JavaScript", "REST APIs", "Firebase","AI/ML"]
+    tags: ["React", "JavaScript", "REST APIs", "Firebase","AI/ML","Node.js",  "Express"]
   },
   {
     id: 3,
@@ -69,7 +70,7 @@ const projects = [
     livelink: "https://chart-genie-eta.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS","REST APIs"]
+    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS","REST APIs","Node.js",  "Express"]
   },
   {
     id: 5,
@@ -91,7 +92,7 @@ const projects = [
     livelink: "https://resume-gpt-frontend-tau.vercel.app/",
     videoLink: "",
    type: "Web App",
-     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML"]
+     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML","Node.js",  "Express"]
   },
   {
     id: 7,
@@ -102,7 +103,7 @@ const projects = [
     livelink: "https://chefgptfrontend2.vercel.app/",
     videoLink: "",
    type: "Web App",
-     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML"]
+     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML","Node.js",  "Express","RAG"]
   }
 ];
 
