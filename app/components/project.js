@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import './projects.css';
+import './project.css';
 import { animate, createScope } from 'animejs';
 
 
@@ -22,10 +22,11 @@ const skills = [
    "Supabase",
    "PostgreSQL",
    "Dart",
-   "NextJs",
+   "Next",
    "AI/ML",
    "RAG"
 ];
+
 const projects = [
      {
     id: 1,
@@ -36,7 +37,7 @@ const projects = [
     livelink: "https://askoria-frontend-5oqc.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["NextJs", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS","REST APIs","Node.js",  "Express"]
+    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS","REST APIs","Node.js",  "Express"]
   },
    {
     id: 2,
@@ -47,7 +48,7 @@ const projects = [
     livelink: "https://chart-genie-eta.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["NextJs", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS","REST APIs","Node.js",  "Express"]
+    tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","AI/ML", "HTML", "CSS","REST APIs","Node.js",  "Express"]
   },
   
   {
@@ -94,7 +95,7 @@ const projects = [
     livelink: "https://resume-gpt-frontend-tau.vercel.app/",
     videoLink: "",
    type: "Web App",
-     tags: ["NextJs", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML","Node.js",  "Express"]
+     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML","Node.js",  "Express"]
   },
   {
     id: 7,
@@ -105,14 +106,14 @@ const projects = [
     livelink: "https://chefgptfrontend2.vercel.app/",
     videoLink: "",
    type: "Web App",
-     tags: ["NextJs", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML","Node.js",  "Express","RAG"]
+     tags: ["Next", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML","Node.js",  "Express","RAG"]
   }
 ];
 
 // =========================
 // Main Component
 // =========================
-const Project = () => {
+const ProjectHomepage = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -246,7 +247,7 @@ const Project = () => {
     <div className="projects-page">
       <div className="projects-container">
 
-        {/* Hero Section */}
+        {/* Hero Section 
         <div className="hero-section">
           <div className="hero-content">
             <h1>Full Stack Developer</h1>
@@ -254,32 +255,10 @@ const Project = () => {
             <button className="cta-btn" onClick={handleScrollToProjects}>View Projects</button>
           </div>
         </div>
+*/}
+       
 
-        {/* Skills Section (Filterable) */}
-        <section className="skills-section">
-          <h2>Skills</h2>
-          <div className="skills-grid">
-            {skills.map(skill => (
-              <button
-                key={skill}
-                className={`skill-tag ${selectedSkill === skill ? "active" : ""}`}
-                onClick={() => setSelectedSkill(skill)}
-              >
-                {skill}
-              </button>
-            ))}
-          </div>
-
-          {/* Clear Filter Button */}
-          {selectedSkill && (
-            <button  
-              className="clear-filter-btn" 
-              onClick={() => setSelectedSkill(null)}
-            >
-              Clear Filter ✖
-            </button>
-          )}
-        </section>
+        
 
         {/* Featured Projects */}
         <section className="featured-projects" id="featured-projects" ref={projectsSectionRef}>
@@ -394,4 +373,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default ProjectHomepage;

@@ -5,6 +5,7 @@ import About from './bio/page';
 import Projects from './projects/page';
 import Contact from './contact/page';
 */
+import ProjectHomepage from './components/project';
 
 const Homepage = () => {
   
@@ -78,7 +79,7 @@ const Homepage = () => {
       <h1>Welcome to My Digital Realm</h1>
       <div className="items-box"> 
         <p>
-          I'm Tazkia, a full-stack developer passionate about creating seamless web experiences, from intuitive frontends to robust backends, with a keen interest in AI and its impact on the future of technology.
+          I'm Tazkia, a full-stack developer passionate about creating seamless web experiences, from intuitive frontend to robust backends, with a keen interest in AI and its impact on the future of technology.
         </p>
         <div className="image-container">
           <img src="laptop.png" alt="Laptop" className="laptop-image" />
@@ -87,8 +88,9 @@ const Homepage = () => {
     </div> {/* Close hero-content */}
   </div>   {/* Close hero-section */}
 </main>
+ <ProjectHomepage />
 
-      {/* Biography Section */}
+      {/* Biography Section 
       <section className="biography-section">
         <div className="profile-section">
           <div className="profile-image">
@@ -109,7 +111,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-
+*/}
       {/* Skills Section */}
       <section className="skillset-section">
         <div className="skills-section">

@@ -24,6 +24,12 @@ const Navbar = () => {
       </div>
       <nav className="nav-section">
         <div className="nav-links">
+            <a 
+            href="#" 
+            onClick={(e) => { e.preventDefault(); handleNavigation('/app'); }}
+          >
+            Homepage
+          </a>
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); handleNavigation('/bio'); }}
