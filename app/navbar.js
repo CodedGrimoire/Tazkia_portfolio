@@ -24,12 +24,7 @@ const Navbar = () => {
       </div>
       <nav className="nav-section">
         <div className="nav-links">
-            <a 
-            href="#" 
-            onClick={(e) => { e.preventDefault(); handleNavigation('/app'); }}
-          >
-            Homepage
-          </a>
+           
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); handleNavigation('/bio'); }}
@@ -49,7 +44,12 @@ const Navbar = () => {
             Contact
           </a>
         </div>
-        <button className="resume-btn">Resume</button>
+       <button 
+  className="resume-btn" 
+  onClick={() => window.open("https://drive.google.com/file/d/18vHq8T3T7d09YMsDDcaD8wXeOCdehM6j/view?usp=sharing", "_blank")}
+>
+  Resume
+</button>
       </nav>
     </header>
   );
