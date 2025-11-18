@@ -90,6 +90,7 @@ const Homepage = () => {
 </main>
  <ProjectHomepage />
 
+
       {/* Biography Section 
       <section className="biography-section">
         <div className="profile-section">
