@@ -1,4 +1,6 @@
 import './layout.css';
+import 'animate.css';
+import Navbar from './navbar';
 
 export default function RootLayout({ children }) {
   return (
@@ -8,6 +10,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <div className="app-layout">
+          <Navbar />
           <div className="layout-container">
             {children}
           </div>

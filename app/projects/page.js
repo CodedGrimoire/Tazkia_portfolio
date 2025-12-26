@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+//import { createPortal } from 'react-dom';
 import './projects.css';
 import { animate, createScope } from 'animejs';
 
@@ -25,6 +27,7 @@ const skills = [
    "NextJs",
    "AI/ML",
    "RAG"
+   ,"Stripe",
 ];
 const projects = [
      {
@@ -70,7 +73,7 @@ const projects = [
     livelink: "https://tragedy-aid-management-467q.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
-    tags: ["React", "Responsive Design", "UI/UX Design", "JavaScript","Firebase","PostgreSQL","REST APIs"]
+    tags: ["React", "Responsive Design", "UI/UX Design", "JavaScript","Firebase","PostgreSQL","REST APIs", "Prisma"]
   },
   {
     id: 5,
@@ -98,14 +101,36 @@ const projects = [
   },
   {
     id: 7,
-    name: "ChefGPT",
-    description: "ChefGPT is an AI-powered recipe recommendation app that suggests meal ideas based on the ingredients you have. It uses semantic search to retrieve matching recipes and falls back to Groq's LLM when no matches are found ",
-    image: "../food.png",
-    githubLink: "https://github.com/CodedGrimoire/ChefGPT",
-    livelink: "https://chefgptfrontend2.vercel.app/",
+    name: "StyleDecor",
+    description: "Style is  a role-based commerce experience with Stripe-powered payments, delivering tailored views for admins, customers, and guests.",
+    image: "../style.png",
+    githubLink: "https://github.com/CodedGrimoire/style-frontend",
+    livelink: "https://style-frontend-sigma.vercel.app/",
     videoLink: "",
-   type: "Web App",
-     tags: ["NextJs", "Responsive Design", "UI/UX Design", "JavaScript","REST APIs","HTML","CSS","AI/ML","Node.js",  "Express","RAG"]
+    type: "Web App",
+    tags: ["NextJs", "Responsive Design", "UI/UX Design", "JavaScript", "TypeScript", "REST APIs", "Stripe", "MERN"]
+  },
+  {
+    id: 8,
+    name: "The Book Haven",
+    description: "The Book Haven is a full-stack MERN library with Firebase Auth where readers can explore, add, manage, and review books with dynamic feeds, sorting, and private CRUD routes.",
+    image: "../bookhaven.png",
+    githubLink: "https://github.com/CodedGrimoire/a10frontend",
+    livelink: "https://a10frontend-seven.vercel.app/",
+    videoLink: "",
+    type: "Full Stack Web App",
+    tags: [
+      "MERN",
+      "React",
+      "Firebase",
+      "MongoDB",
+      "Express",
+      "Node.js",
+      "REST APIs",
+      "Responsive Design",
+      "UI/UX Design",
+      "Axios"
+    ]
   }
 ];
 
@@ -116,7 +141,9 @@ const Project = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const projectsSectionRef = useRef(null);
+  useEffect(() => setIsMounted(true), []);
 
   // Hero intro animation (v4 API)
   useEffect(() => {
@@ -203,6 +230,7 @@ const Project = () => {
   useEffect(() => {
     const scope = createScope();
     if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
       scope.add(() => {
         animate('.modal-overlay', {
           from: { opacity: 0 },
@@ -218,7 +246,10 @@ const Project = () => {
         });
       });
     }
-    return () => scope.revert();
+    return () => {
+      document.body.style.overflow = '';
+      scope.revert();
+    };
   }, [isModalOpen]);
 
   // Filter projects by selected skill
@@ -243,7 +274,7 @@ const Project = () => {
   };
 
   return (
-    <div className="projects-page">
+    <div className="projects-page animate__animated animate__fadeIn">
       <div className="projects-container">
 
         {/* Hero Section */}
@@ -315,7 +346,7 @@ const Project = () => {
         </section>
 
         {/* Modal */}
-        {isModalOpen && selectedProject && (
+        {isMounted && isModalOpen && selectedProject && createPortal(
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <button className="modal-close" onClick={closeModal}>✕</button>
@@ -387,7 +418,8 @@ const Project = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
     </div>

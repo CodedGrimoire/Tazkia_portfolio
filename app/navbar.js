@@ -1,10 +1,15 @@
 
 "use client";
 import React from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import './navbar.css';
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const handleNavigation = (path) => {
-    window.location.href = path;
+    router.push(path);
   };
 
   return (
@@ -24,21 +29,30 @@ const Navbar = () => {
       </div>
       <nav className="nav-section">
         <div className="nav-links">
-           
           <a 
             href="#" 
+            className={pathname === '/' ? 'active' : ''}
+            onClick={(e) => { e.preventDefault(); handleNavigation('/'); }}
+          >
+            Home
+          </a>
+          <a 
+            href="#" 
+            className={pathname === '/bio' ? 'active' : ''}
             onClick={(e) => { e.preventDefault(); handleNavigation('/bio'); }}
           >
             About
           </a>
           <a 
             href="#" 
+            className={pathname === '/projects' ? 'active' : ''}
             onClick={(e) => { e.preventDefault(); handleNavigation('/projects'); }}
           >
             Projects
           </a>
           <a 
             href="#" 
+            className={pathname === '/contact' ? 'active' : ''}
             onClick={(e) => { e.preventDefault(); handleNavigation('/contact'); }}
           >
             Contact

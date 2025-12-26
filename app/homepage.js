@@ -74,7 +74,7 @@ const Homepage = () => {
         </div>
       </div>
 <main className="main-content">
-  <div className="hero-section">
+  <div className="hero-section animate__animated animate__fadeInUp">
     <div className="hero-content">
       <h1>Welcome to My Digital Realm</h1>
       <div className="items-box"> 
