@@ -41,12 +41,24 @@
 .nav-section {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
 }
 
 .nav-links {
   display: flex;
   gap: 36px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .nav-links a {

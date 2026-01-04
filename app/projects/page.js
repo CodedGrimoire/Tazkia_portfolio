@@ -107,7 +107,7 @@ const projects = [
     githubLink: "https://github.com/CodedGrimoire/style-frontend",
     livelink: "https://style-frontend-sigma.vercel.app/",
     videoLink: "",
-    type: "Web App",
+    type: "Full Stack Web App",
     tags: ["NextJs", "Responsive Design", "UI/UX Design", "JavaScript", "TypeScript", "REST APIs", "Stripe", "MERN"]
   },
   {
@@ -265,6 +265,105 @@ const Project = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
+  };
+
+  const projectInsights = {
+    Askoria: {
+      challenges: [
+        "Designing prompts that generate structured, balanced quizzes.",
+        "Handling AI output variability while keeping UX consistent.",
+        "Managing latency and cost trade-offs."
+      ],
+      plans: [
+        "Adaptive difficulty based on user performance.",
+        "Question quality scoring.",
+        "Support for additional quiz formats."
+      ]
+    },
+    ChartGenie: {
+      challenges: [
+        "Translating ambiguous natural language into accurate diagrams.",
+        "Maintaining diagram correctness with flexible input.",
+        "Rendering complex visuals efficiently."
+      ],
+      plans: [
+        "Support for more diagram types.",
+        "Editable post-generation diagrams.",
+        "Multi-format export."
+      ]
+    },
+    Cinephile: {
+      challenges: [
+        "Building relevant recommendations without overfitting.",
+        "Balancing API performance with UX.",
+        "Avoiding visual clutter."
+      ],
+      plans: [
+        "Hybrid recommendation logic.",
+        "Persistent user profiles.",
+        "Offline caching."
+      ]
+    },
+    Uddhar: {
+      challenges: [
+        "Modeling real-world emergency workflows.",
+        "Designing time-critical dashboards.",
+        "Maintaining usability for non-technical users."
+      ],
+      plans: [
+        "Role-based dashboards.",
+        "Real-time analytics and alerts.",
+        "External system integrations."
+      ]
+    },
+    ResumeGPT: {
+      challenges: [
+        "Avoiding generic AI feedback.",
+        "Structuring actionable insights.",
+        "Handling diverse resume formats."
+      ],
+      plans: [
+        "JD matching.",
+        "Career roadmap generation.",
+        "Resume version comparison."
+      ]
+    },
+    Awaaz: {
+      challenges: [
+        "Ensuring reliability of emergency features.",
+        "Minimizing latency in critical actions.",
+        "Designing for trust and simplicity."
+      ],
+      plans: [
+        "Pattern-based safety detection.",
+        "Multilingual support.",
+        "Emergency service integration."
+      ]
+    },
+    StyleDecor: {
+      challenges: [
+        "Implementing role-based access control.",
+        "Secure payment integration.",
+        "Frontend–backend state consistency."
+      ],
+      plans: [
+        "Advanced analytics.",
+        "Service customization.",
+        "Improved order tracking."
+      ]
+    },
+    "The Book Haven": {
+      challenges: [
+        "Managing auth boundaries.",
+        "Efficient CRUD operations.",
+        "Scaling content-heavy views."
+      ],
+      plans: [
+        "Reading-based recommendations.",
+        "Social reading features.",
+        "Performance optimization."
+      ]
+    }
   };
 
   const handleScrollToProjects = () => {
@@ -451,6 +550,27 @@ const Project = () => {
                       </a>
                     )}
                   </div>
+
+                  {projectInsights[selectedProject.name] && (
+                    <div className="modal-insights">
+                      <div className="insight-section">
+                        <h4>Challenges Faced</h4>
+                        <ul>
+                          {projectInsights[selectedProject.name].challenges.map((item, idx) => (
+                            <li key={`challenge-${idx}`}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="insight-section">
+                        <h4>Potential Improvements &amp; Future Plans</h4>
+                        <ul>
+                          {projectInsights[selectedProject.name].plans.map((item, idx) => (
+                            <li key={`plan-${idx}`}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
