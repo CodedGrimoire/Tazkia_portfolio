@@ -312,6 +312,42 @@ const ProjectHomepage = () => {
                     <span className="type-badge">{project.type}</span>
                   </div>
                 </div>
+                <div className="project-links">
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      className="project-link-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="project-link-icon">
+                        <path
+                          fill="currentColor"
+                          d="M12 .5C5.7.5.7 5.5.7 11.8c0 5 3.2 9.3 7.7 10.8.6.1.8-.3.8-.6v-2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a10 10 0 0 1 6 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.4 0 4.6-2.7 5.6-5.2 5.9.4.3.8 1 .8 2v3c0 .3.2.7.8.6a11.3 11.3 0 0 0 7.7-10.7C23.3 5.5 18.3.5 12 .5Z"
+                        />
+                      </svg>
+                      <span>GitHub</span>
+                    </a>
+                  )}
+                  {project.livelink && (
+                    <a
+                      href={project.livelink}
+                      className="project-link-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="project-link-icon">
+                        <path
+                          fill="currentColor"
+                          d="M5 19h14v2H5zm13.3-9.4-4.9 4.9-3-3L4 18V6h14v3.6Zm-6.2 2.4 5-5H6v6.9l3.2-3.2 3 3Z"
+                        />
+                      </svg>
+                      <span>Live</span>
+                    </a>
+                  )}
+                </div>
                 <div className="hover-hint">click to expand</div>
               </div>
             ))}
