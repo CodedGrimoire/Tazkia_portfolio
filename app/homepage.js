@@ -230,9 +230,21 @@ const Homepage = () => {
     <div className="hero-content">
       <h1>Welcome to My Digital Realm</h1>
       <div className="items-box"> 
-        <p>
-          I'm Tazkia, a full-stack developer passionate about creating seamless web experiences, from intuitive frontend to robust backends, with a keen interest in AI and its impact on the future of technology.
-        </p>
+        <div className="hero-text-block">
+          <p>
+            I'm Tazkia, a full-stack developer passionate about creating seamless web experiences, from intuitive frontend to robust backends, with a keen interest in AI and its impact on the future of technology.
+          </p>
+          <div className="hero-actions">
+            <a
+              className="resume-btn"
+              href="/tazkia_malik.pdf"
+              download="tazkia_malik.pdf"
+              aria-label="Download resume as PDF"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
         <div className="image-container">
           <img src="laptop.png" alt="Laptop" className="laptop-image" />
         </div>

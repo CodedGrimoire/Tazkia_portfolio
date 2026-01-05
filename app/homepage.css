@@ -313,6 +313,16 @@ html::after {
   text-align: left;
   
 }
+.hero-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 520px;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+}
 .image-container {
   width: 250px;
   position: relative;

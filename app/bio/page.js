@@ -127,11 +127,16 @@ const Bio = () => {
 
         {/* Bio Description */}
         <div className="bio-description">
-          <p>
-            I'm Tazkia, a full-stack developer passionate about building scalable and meaningful digital experiences. 
-            With hands-on expertise across the entire tech stack and a growing focus on artificial intelligence and quantum computing, 
-            I turn complex ideas into real-world solutions. Whether it's frontend finesse or backend architecture, I craft with purpose, clarity, and precision.
-          </p>
+          <div className="bio-text">
+            <p>
+              I'm Tazkia, a full-stack developer passionate about building scalable and meaningful digital experiences. 
+              With hands-on expertise across the entire tech stack and a growing focus on artificial intelligence and quantum computing, 
+              I turn complex ideas into real-world solutions. Whether it's frontend finesse or backend architecture, I craft with purpose, clarity, and precision.
+            </p>
+          </div>
+          <div className="bio-logo">
+            <img src="/logo.gif" alt="Logo" />
+          </div>
         </div>
 
         {/* Skills Section */}
