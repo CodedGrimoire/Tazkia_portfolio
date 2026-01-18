@@ -85,7 +85,7 @@ const Navbar = () => {
           </div>
           <button 
             className="resume-btn" 
-            onClick={() => window.open("https://drive.google.com/file/d/18vHq8T3T7d09YMsDDcaD8wXeOCdehM6j/view?usp=sharing", "_blank")}
+            onClick={() => window.open("https://drive.google.com/file/d/1tWpERxbeau5CG8rU9OrJ1CBWaxnozcRC/view?usp=drive_link", "_blank")}
           >
             Resume
           </button>

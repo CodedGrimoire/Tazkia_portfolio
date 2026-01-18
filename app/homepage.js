@@ -237,9 +237,10 @@ const Homepage = () => {
           <div className="hero-actions">
             <a
               className="resume-btn"
-              href="/tazkia_malik.pdf"
-              download="tazkia_malik.pdf"
-              aria-label="Download resume as PDF"
+              href="https://drive.google.com/file/d/1tWpERxbeau5CG8rU9OrJ1CBWaxnozcRC/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View resume"
             >
               Download Resume
             </a>
