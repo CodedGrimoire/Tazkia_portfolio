@@ -27,6 +27,7 @@ html::after {
   color: white;
   min-height: 100vh;
   position: relative;
+  --content-max-width: 1200px;
 }
 
 /* Animated Tech Logos Background */
@@ -462,7 +463,7 @@ html::after {
 
 .tech-section,
 .skills-level-section {
-  max-width: 1200px;
+  max-width: var(--content-max-width, 1200px);
   margin: 80px auto 0 auto;
   padding: 0 20px;
   position: relative;
@@ -619,8 +620,8 @@ html::after {
 
 /* Skills Section */
 .skillset-section {
-  max-width: 1200px;
-  margin: 80px auto;
+  max-width: var(--content-max-width, 1200px);
+  margin: 80px auto 0 auto;
   padding: 0 20px;
   position: relative;
   z-index: 5;
@@ -741,6 +742,19 @@ html::after {
   position: relative;
   z-index: 10;
   margin-top: 80px;
+  width: 100%;
+}
+
+/* Projects section on homepage: match content width */
+.homepage .projects-page {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.homepage .projects-page .projects-container {
+  max-width: var(--content-max-width, 1200px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .social-links {
@@ -817,9 +831,9 @@ html::after {
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
   }
 
-  .footer {
-    padding: 16px;
-  }
+.footer {
+  padding: 16px 20px;
+}
 
   .profile-section {
     flex-direction: column;

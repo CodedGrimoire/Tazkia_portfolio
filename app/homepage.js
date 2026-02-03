@@ -271,56 +271,7 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section className="skills-level-section">
-        <div className="section-header">
-          <p className="section-kicker">Skills</p>
-          <h2 className="section-title">My Technical Level</h2>
-        </div>
-        <div className="skills-card-grid">
-          {skillTracks.map((track) => (
-            <div className="skill-card-glass" key={track.title}>
-              <h3 className="skill-card-title">{track.title}</h3>
-              <ul className="skill-level-list">
-                {track.skills.map((skill) => (
-                  <li className="skill-level-item" key={skill.name}>
-                    <span className="skill-bullet" aria-hidden="true" />
-                    <span className="skill-line">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-level">{skill.level}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
- <ProjectHomepage />
-
-
-      {/* Biography Section 
-      <section className="biography-section">
-        <div className="profile-section">
-          <div className="profile-image">
-            <div 
-              className="profile-image-inner" 
-              style={{
-                backgroundImage: "url('me.jpeg')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
-            />
-          </div>
-          <div className="profile-info">
-            <h1>Tazkia Malik</h1>
-            <p className="job-title">Full Stack Developer</p>
-            <p className="specialization">AI & Quantum Computing Enthusiast</p>
-          </div>
-        </div>
-      </section>
-*/}
-      {/* Skills Section */}
+      {/* Technical Skills - right below My Tech Stack */}
       <section className="skillset-section">
         <div className="skills-section">
           <h2>Technical Skills</h2>
@@ -408,6 +359,33 @@ const Homepage = () => {
           </div>
         </div>
       </section>
+
+      <section className="skills-level-section">
+        <div className="section-header">
+          <p className="section-kicker">Skills</p>
+          <h2 className="section-title">My Technical Level</h2>
+        </div>
+        <div className="skills-card-grid">
+          {skillTracks.map((track) => (
+            <div className="skill-card-glass" key={track.title}>
+              <h3 className="skill-card-title">{track.title}</h3>
+              <ul className="skill-level-list">
+                {track.skills.map((skill) => (
+                  <li className="skill-level-item" key={skill.name}>
+                    <span className="skill-bullet" aria-hidden="true" />
+                    <span className="skill-line">
+                      <span className="skill-name">{skill.name}</span>
+                      <span className="skill-level">{skill.level}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <ProjectHomepage />
 
       <footer className="footer">
         <div className="social-links">
