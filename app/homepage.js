@@ -237,7 +237,7 @@ const Homepage = () => {
           <div className="hero-actions">
             <a
               className="resume-btn"
-              href="https://drive.google.com/file/d/1tWpERxbeau5CG8rU9OrJ1CBWaxnozcRC/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1aHQ9yr78g39Kff0_5R8BdOcCooQKTGxP/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View resume"
