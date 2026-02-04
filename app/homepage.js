@@ -135,31 +135,6 @@ const Homepage = () => {
     { name: 'Git' },
     { name: 'AWS' },
   ];
-
-  const skillTracks = [
-    {
-      title: 'Frontend Developer',
-      skills: [
-        { name: 'HTML5', level: 'Expert' },
-        { name: 'JavaScript', level: 'Expert' },
-        { name: 'TypeScript', level: 'Expert' },
-        { name: 'React.js', level: 'Expert' },
-        { name: 'Next.js', level: 'Expert' },
-        { name: 'Tailwind CSS', level: 'Intermediate' },
-      ],
-    },
-    {
-      title: 'Backend Developer',
-      skills: [
-        { name: 'Node.js', level: 'Expert' },
-        { name: 'Express.js', level: 'Expert' },
-        { name: 'MongoDB', level: 'Expert' },
-        { name: 'SQL', level: 'Intermediate' },
-        { name: 'Docker', level: 'Intermediate' },
-        { name: 'Kubernetes', level: 'Intermediate' },
-      ],
-    },
-  ];
   
   return (
     <div className="homepage">
@@ -237,7 +212,7 @@ const Homepage = () => {
           <div className="hero-actions">
             <a
               className="resume-btn"
-              href="https://drive.google.com/file/d/1aHQ9yr78g39Kff0_5R8BdOcCooQKTGxP/view?usp=sharing"
+              href="https://drive.google.com/file/d/1E2YcMSVDziZqE0nTX7KDLDPkrIAmaJ2M/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View resume"
@@ -357,31 +332,6 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="skills-level-section">
-        <div className="section-header">
-          <p className="section-kicker">Skills</p>
-          <h2 className="section-title">My Technical Level</h2>
-        </div>
-        <div className="skills-card-grid">
-          {skillTracks.map((track) => (
-            <div className="skill-card-glass" key={track.title}>
-              <h3 className="skill-card-title">{track.title}</h3>
-              <ul className="skill-level-list">
-                {track.skills.map((skill) => (
-                  <li className="skill-level-item" key={skill.name}>
-                    <span className="skill-bullet" aria-hidden="true" />
-                    <span className="skill-line">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-level">{skill.level}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
       </section>
 
