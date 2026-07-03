@@ -128,6 +128,7 @@ const Homepage = () => {
     { name: 'NestJS' },
     { name: 'MongoDB' },
     { name: 'PostgreSQL' },
+    { name: 'Go' },
     { name: 'Prisma' },
     { name: 'Docker' },
     { name: 'Kubernetes' },
@@ -281,6 +282,7 @@ const Homepage = () => {
                 <span className="skill-tag">Node.js</span>
                 <span className="skill-tag">Express.js</span>
                 <span className="skill-tag">Python</span>
+                <span className="skill-tag">Go</span>
                 <span className="skill-tag">REST APIs</span>
               </div>
             </div>

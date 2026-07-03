@@ -12,7 +12,7 @@ const Bio = () => {
 
   const skillCategories = {
     frontend: ['React', 'Next.js', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS'],
-    backend: ['Node.js', 'Express.js', 'Python', 'REST APIs', 'GraphQL'],
+    backend: ['Node.js', 'Express.js', 'Python', 'Go', 'REST APIs', 'GraphQL'],
     database: ['PostgreSQL', 'MongoDB', 'Firebase', 'Supabase'],
     devops: ['Docker', 'Kubernetes', 'CI/CD', 'AWS', 'Git'],
     ai: ['TensorFlow', 'PyTorch', 'Machine Learning', 'NLP', 'Computer Vision'],

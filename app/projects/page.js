@@ -10,6 +10,7 @@ import { animate, createScope } from 'animejs';
 const skills = [
   "React",
   "Node.js",
+  "Go",
   "Express",
   "MongoDB",
   "JavaScript",
@@ -26,8 +27,8 @@ const skills = [
    "Dart",
    "NextJs",
    "AI/ML",
-   "RAG"
-   ,"Stripe",
+   "RAG",
+   "Stripe",
 ];
 const projects = [
      {
