@@ -128,91 +128,6 @@ html::after {
   }
 }
 
-/* Glassmorphism Header */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 40px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  position: fixed;
-  top: 0;
-  left: 50%;       /* center horizontally */
-  transform: translateX(-50%);
-  width: 100%;      /* your custom width */
-  z-index: 10;
-  flex-shrink: 0;
-}
-.logo-section {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.logo-icon {
-  width: 18px;
-  height: 18px;
-  color: #7B68EE;
-}
-
-.logo-section h2 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0;
-  letter-spacing: -0.015em;
-  background: linear-gradient(135deg, #7B68EE 0%, #4A90E2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.nav-section {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-}
-
-.nav-links a {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-links a:hover {
-  color: #7B68EE;
-  transform: translateY(-1px);
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #7B68EE, #4A90E2);
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
-
-.nav-links a.active {
-  color: #7B68EE;
-}
-
 .resume-btn {
   background: linear-gradient(135deg, #7B68EE 0%, #4A90E2 100%);
   color: white;
@@ -234,11 +149,11 @@ html::after {
 
 /* Hero Section - Full Height */
 .main-content {
-  min-height: 100vh;
+  min-height: calc(100vh - 88px);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 48px 20px 24px;
   position: relative;
   z-index: 5;
 }
@@ -251,14 +166,13 @@ html::after {
   display: flex;
   align-items: center;
   justify-content: center;
- height: 500px;
-  width: 900px;
+  min-height: 500px;
+  width: min(100%, 900px);
   padding: 60px 40px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-  position: absolute;
+  position: relative;
   overflow: hidden;
-   box-shadow: 0 0 40px rgba(123, 104, 238, 0.4), 
-              0 0 80px rgba(74, 144, 226, 0.3); /* Softer glow */
+  box-shadow: 0 0 40px rgba(123, 104, 238, 0.4),
+              0 0 80px rgba(74, 144, 226, 0.3);
 }
 
 .hero-section::before {
@@ -279,23 +193,23 @@ html::after {
 
 .hero-content {
   text-align: center;
-  max-width: 600px;
+  width: 100%;
+  max-width: 760px;
   position: relative;
   z-index: 2;
-
 }
-.items-box{
+
+.items-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
   gap: 25px;
 }
 
 .hero-content h1 {
   font-size: 48px;
   font-weight: 900;
-  margin: 10 0 20px 0;
+  margin: 0 0 20px 0;
   letter-spacing: -0.033em;
   line-height: 1.1;
   background: linear-gradient(135deg, #ffffff 0%, #7B68EE 50%, #4A90E2 100%);
@@ -324,18 +238,17 @@ html::after {
   display: flex;
   gap: 12px;
 }
+
 .image-container {
-  width: 250px;
+  width: min(250px, 32vw);
   position: relative;
   flex-shrink: 0;
-  transform: translateX(-60px);
 }
 
 .laptop-image {
-  width: 400px;
+  width: min(400px, 100%);
   height: auto;
   filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
-  
   transition: transform 0.3s ease;
 }
 
@@ -794,35 +707,52 @@ html::after {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .header {
-    padding: 12px 20px;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .nav-section {
-    gap: 16px;
-  }
-  
-  .nav-links {
-    gap: 20px;
-  }
-  
   .main-content {
-    padding: 20px;
+    min-height: auto;
+    padding: 28px 16px 24px;
   }
 
   .hero-section {
+    min-height: auto;
     padding: 40px 24px;
     border-radius: 16px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .items-box {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .hero-text-block {
+    max-width: 100%;
+    align-items: center;
   }
   
   .hero-content h1 {
     font-size: 32px;
   }
   
-  .hero-content p {
+  .hero-content .items-box p {
     font-size: 14px;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-actions .resume-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .image-container {
+    width: min(260px, 72vw);
   }
 
   .tech-logo {
@@ -930,56 +860,58 @@ html::after {
   .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: center;     /* center content horizontally */
-    text-align: center;      /* center text */
+    align-items: center;
+    text-align: center;
     gap: 20px;
-    padding: 0 20px;          /* prevent text touching screen edges */
-    width: min(720px, 74%);
+    padding: 0;
+    width: 100%;
   }
+
   .hero-section {
-    position: relative; /* needed for the pseudo-element */
     padding: 40px 20px;
     width: 100%;
-    height: auto;
     border-radius: 16px;
-    overflow: hidden; /* ensure blurred background doesn't overflow */
-}
+  }
 
-.hero-section::before {
+  .hero-section::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/laptop.png'); /* replace with your image */
+    background-image: url('/laptop.png');
     background-size: cover;
     background-position: center;
-    filter: blur(8px); /* adjust blur level */
-    opacity: 0.5; /* adjust transparency */
-    z-index: 0; /* behind content */
-    transition: none;;
-}
+    filter: blur(8px);
+    opacity: 0.3;
+    z-index: 0;
+    transition: none;
+  }
 
-.hero-section > * {
+  .hero-section > * {
     position: relative;
-    z-index: 1; /* make sure content stays above the background */
-}
+    z-index: 1;
+  }
+
   .hero-content h1 {
     font-size: clamp(26px, 7vw, 34px);
   }
 
   .items-box {
     max-width: 36rem;
-    text-align: center;       /* center text on mobile */
+    text-align: center;
   }
 
   .items-box p {
     font-size: clamp(14px, 4vw, 16px);
   }
 
-  .image-container,
-  .laptop-image {
-    display: none !important; /* hide image and container on mobile */
+  .image-container {
+    width: min(220px, 70vw);
+  }
+
+  .laptop-image:hover {
+    transform: none;
   }
 }

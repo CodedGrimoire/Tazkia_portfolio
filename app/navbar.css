@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   padding: 16px 40px;
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(15px);
@@ -22,8 +23,8 @@
 }
 
 .logo-icon {
-  width: 300px;
-  height: 300px;
+  width: 24px;
+  height: 24px;
   color: #7b68ee;
   display: flex;
   align-items: center;
@@ -52,18 +53,23 @@
 .nav-section {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
   gap: 24px;
 }
 
 .nav-links {
   display: flex;
   gap: 36px;
+  flex-wrap: wrap;
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .nav-social {
@@ -127,16 +133,56 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 12px 20px;
+    padding: 14px 16px;
     flex-direction: column;
-    gap: 12px;
+    align-items: stretch;
+    gap: 14px;
   }
 
   .nav-section {
-    gap: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
   }
 
   .nav-links {
-    gap: 20px;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .nav-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .resume-btn {
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-section {
+    justify-content: center;
+  }
+
+  .logo-section h2 {
+    font-size: 16px;
+  }
+
+  .nav-links {
+    gap: 14px 18px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .social-link {
+    width: 48px;
+    height: 48px;
+  }
+
+  .resume-btn {
+    width: 100%;
   }
 }
