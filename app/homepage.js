@@ -1,6 +1,24 @@
 import React from 'react';
 import Image from 'next/image';
 import './homepage.css';
+import {
+  SiAmazonwebservices,
+  SiDocker,
+  SiExpress,
+  SiGit,
+  SiGo,
+  SiJavascript,
+  SiKubernetes,
+  SiMongodb,
+  SiNestjs,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
 /* Import your sections
 import About from './bio/page';
 import Projects from './projects/page';
@@ -10,22 +28,22 @@ import ProjectHomepage from './components/project';
 
 const Homepage = () => {
   const techStack = [
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'Next.js',
-    'Node.js',
-    'Express',
-    'NestJS',
-    'MongoDB',
-    'PostgreSQL',
-    'Go',
-    'Prisma',
-    'Docker',
-    'Kubernetes',
-    'Tailwind CSS',
-    'Git',
-    'AWS',
+    { name: 'JavaScript', icon: SiJavascript },
+    { name: 'TypeScript', icon: SiTypescript },
+    { name: 'React', icon: SiReact },
+    { name: 'Next.js', icon: SiNextdotjs },
+    { name: 'Node.js', icon: SiNodedotjs },
+    { name: 'Express', icon: SiExpress },
+    { name: 'NestJS', icon: SiNestjs },
+    { name: 'MongoDB', icon: SiMongodb },
+    { name: 'PostgreSQL', icon: SiPostgresql },
+    { name: 'Go', icon: SiGo },
+    { name: 'Prisma', icon: SiPrisma },
+    { name: 'Docker', icon: SiDocker },
+    { name: 'Kubernetes', icon: SiKubernetes },
+    { name: 'Tailwind CSS', icon: SiTailwindcss },
+    { name: 'Git', icon: SiGit },
+    { name: 'AWS', icon: SiAmazonwebservices },
   ];
   
   return (
@@ -134,14 +152,17 @@ const Homepage = () => {
           <h2 className="section-title">My Tech Stack</h2>
         </div>
         <div className="tech-grid">
-          {techStack.map((tech) => (
-            <div className="tech-card" key={tech}>
-              <div className="tech-icon-circle" aria-label={tech}>
-                <span className="tech-initial">{tech.charAt(0)}</span>
+          {techStack.map((tech) => {
+            const Icon = tech.icon;
+
+            return (
+            <div className="tech-card" key={tech.name}>
+              <div className="tech-icon-circle" aria-label={tech.name}>
+                <Icon className="tech-logo-image" aria-hidden="true" />
               </div>
-              <p className="tech-name">{tech}</p>
+              <p className="tech-name">{tech.name}</p>
             </div>
-          ))}
+          )})}
         </div>
       </section>
 
