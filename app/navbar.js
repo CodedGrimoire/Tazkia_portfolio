@@ -1,17 +1,7 @@
-
-"use client";
-import React from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import './navbar.css';
 
 const Navbar = () => {
-  const pathname = usePathname();
-  const router = useRouter();
-
-  const handleNavigation = (path) => {
-    router.push(path);
-  };
-
   return (
     <header className="header">
       <div className="logo-section">
@@ -29,34 +19,10 @@ const Navbar = () => {
       </div>
       <nav className="nav-section">
         <div className="nav-links">
-          <a 
-            href="#" 
-            className={pathname === '/' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); handleNavigation('/'); }}
-          >
-            Home
-          </a>
-          <a 
-            href="#" 
-            className={pathname === '/bio' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); handleNavigation('/bio'); }}
-          >
-            About
-          </a>
-          <a 
-            href="#" 
-            className={pathname === '/projects' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); handleNavigation('/projects'); }}
-          >
-            Projects
-          </a>
-          <a 
-            href="#" 
-            className={pathname === '/contact' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); handleNavigation('/contact'); }}
-          >
-            Contact
-          </a>
+          <Link href="/">Home</Link>
+          <Link href="/bio">About</Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="/contact">Contact</Link>
         </div>
         <div className="nav-actions">
           <div className="nav-social">
@@ -83,12 +49,14 @@ const Navbar = () => {
               </svg>
             </a>
           </div>
-          <button 
-            className="resume-btn" 
-            onClick={() => window.open("https://drive.google.com/file/d/1E2YcMSVDziZqE0nTX7KDLDPkrIAmaJ2M/view?usp=sharing", "_blank")}
+          <a
+            className="resume-btn"
+            href="https://drive.google.com/file/d/1E2YcMSVDziZqE0nTX7KDLDPkrIAmaJ2M/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Resume
-          </button>
+          </a>
         </div>
       </nav>
     </header>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import './homepage.css';
 /* Import your sections
 import About from './bio/page';
@@ -9,22 +10,22 @@ import ProjectHomepage from './components/project';
 
 const Homepage = () => {
   const techStack = [
-    { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-    { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-    { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-    { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
-    { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-    { name: 'Express', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg' },
-    { name: 'NestJS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg' },
-    { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-    { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-    { name: 'Go', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg' },
-    { name: 'Prisma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg' },
-    { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-    { name: 'Kubernetes', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg' },
-    { name: 'Tailwind CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-    { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-    { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'Next.js',
+    'Node.js',
+    'Express',
+    'NestJS',
+    'MongoDB',
+    'PostgreSQL',
+    'Go',
+    'Prisma',
+    'Docker',
+    'Kubernetes',
+    'Tailwind CSS',
+    'Git',
+    'AWS',
   ];
   
   return (
@@ -113,7 +114,14 @@ const Homepage = () => {
           </div>
         </div>
         <div className="image-container">
-          <img src="laptop.png" alt="Laptop" className="laptop-image" />
+          <Image
+            src="/laptop.png"
+            alt="Laptop"
+            className="laptop-image"
+            width={388}
+            height={312}
+            priority
+          />
         </div>
       </div>
     </div> {/* Close hero-content */}
@@ -127,11 +135,11 @@ const Homepage = () => {
         </div>
         <div className="tech-grid">
           {techStack.map((tech) => (
-            <div className="tech-card" key={tech.name}>
-              <div className="tech-icon-circle" aria-label={tech.name}>
-                <img className="tech-logo-image" src={tech.logo} alt={tech.name} loading="lazy" />
+            <div className="tech-card" key={tech}>
+              <div className="tech-icon-circle" aria-label={tech}>
+                <span className="tech-initial">{tech.charAt(0)}</span>
               </div>
-              <p className="tech-name">{tech.name}</p>
+              <p className="tech-name">{tech}</p>
             </div>
           ))}
         </div>

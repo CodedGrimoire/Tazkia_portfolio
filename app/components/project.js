@@ -1,40 +1,16 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import Image from 'next/image';
 import './project.css';
-import { animate, createScope } from 'animejs';
-
-
-const skills = [
-  "React",
-  "Node.js",
-  "Go",
-  "Express",
-  "MongoDB",
-  "JavaScript",
-  "HTML",
-  "CSS",
-  "Git",
-  "REST APIs",
-  "Responsive Design",
-  "UI/UX Design",
-  "Agile Development",
-  "Firebase",
-   "Supabase",
-   "PostgreSQL",
-   "Dart",
-   "Next",
-   "AI/ML",
-   "RAG"
-];
 
 const projects = [
      {
     id: 1,
     name: "Askoria",
     description: "Askoria is a full-stack web application that allows users to generate structured course outlines instantly. Users provide a course title and description, and the backend—powered by AI—returns a clear, organized outline of modules and lessons.",
-    image: "../ask.png",
+    image: "/ask.png",
     githubLink: "https://github.com/CodedGrimoire/askoria",
     livelink: "https://askoria-frontend-5oqc.vercel.app/",
     videoLink: "",
@@ -45,7 +21,7 @@ const projects = [
     id: 2,
     name: "ChartGenie",
     description: "ChartGenie is a conversational AI-powered web application that converts natural language descriptions into interactive diagrams via a chat interface",
-    image: "../cgb.png",
+    image: "/cgb.png",
     githubLink: "https://github.com/CodedGrimoire/ChartGenie",
     livelink: "https://chart-genie-eta.vercel.app/",
     videoLink: "",
@@ -57,7 +33,7 @@ const projects = [
     id: 3,
     name: "Cinephile",
     description: "Cinephile is a modern movie app for exploring films, viewing details, and managing a personalized watchlist with AI powered movie suggestion.",
-    image: "../cine.png",
+    image: "/cine.png",
     githubLink: "https://github.com/CodedGrimoire/cinephile",
     livelink: "https://cinephile-xoym.vercel.app/",
     videoLink: "",
@@ -68,7 +44,7 @@ const projects = [
     id: 4,
     name: "Uddhar",
     description: "The Tragedy Aid Management System streamlines aid distribution and tracking to ensure transparency and efficiency.",
-    image: "../tra.png",
+    image: "/tra.png",
     githubLink: "https://github.com/CodedGrimoire/tragedy-aid-management",
     livelink: "https://tragedy-aid-management-467q.vercel.app/",
     videoLink: "",
@@ -79,7 +55,7 @@ const projects = [
     id: 5,
     name: "Awaaz",
     description: "A women's safety app with SOS alerts, live location sharing, and instant connection to trusted contacts.",
-    image: "../wsa.png",
+    image: "/wsa.png",
     githubLink: "",
     livelink: "",
     videoLink: "https://drive.google.com/file/d/1xcR1gDCwLOJ-ESR5iPGl1mAAk5Y1I4zi/view?usp=sharing",
@@ -92,7 +68,7 @@ const projects = [
     id: 6,
     name: "ResumeGPT",
     description: "ResumeGPT is an AI-powered resume review and career insight tool that analyzes uploaded resumes and provides detailed, structured feedback, along with personalized career insights using LLMs via the Groq API.",
-    image: "../ras.png",
+    image: "/ras.png",
     githubLink: "https://github.com/CodedGrimoire/resume-gpt",
     livelink: "https://resume-gpt-frontend-tau.vercel.app/",
     videoLink: "",
@@ -103,7 +79,7 @@ const projects = [
     id: 7,
     name: "Style Frontend",
     description: "Style is a frontend for a role-based commerce experience with Stripe-powered payments, delivering tailored views for admins, customers, and guests.",
-    image: "../style.png",
+    image: "/style.png",
     githubLink: "https://github.com/CodedGrimoire/style-frontend",
     livelink: "https://style-frontend-sigma.vercel.app/",
     videoLink: "",
@@ -114,7 +90,7 @@ const projects = [
     id: 8,
     name: "The Book Haven",
     description: "The Book Haven is a full-stack MERN library with Firebase Auth where readers can explore, add, manage, and review books with dynamic feeds, sorting, and private CRUD routes.",
-    image: "../bookhaven.png",
+    image: "/bookhaven.png",
     githubLink: "https://github.com/CodedGrimoire/a10frontend",
     livelink: "https://a10frontend-seven.vercel.app/",
     videoLink: "",
@@ -236,124 +212,19 @@ const projectInsights = {
 // Main Component
 // =========================
 const ProjectHomepage = () => {
-  const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const projectsSectionRef = useRef(null);
   useEffect(() => setIsMounted(true), []);
 
-  // Hero intro animation (v4 API)
   useEffect(() => {
-    const scope = createScope();
-    scope.add(() => {
-      animate('.hero-content h1', {
-        from: { opacity: 0, translateY: 20 },
-        to: { opacity: 1, translateY: 0 },
-        duration: 700,
-        ease: 'easeOutQuad'
-      });
-      animate('.hero-content p', {
-        from: { opacity: 0, translateY: 20 },
-        to: { opacity: 1, translateY: 0 },
-        duration: 600,
-        delay: 300,
-        ease: 'easeOutQuad'
-      });
-      animate('.hero-content .cta-btn', {
-        from: { opacity: 0, translateY: 20 },
-        to: { opacity: 1, translateY: 0 },
-        duration: 600,
-        delay: 600,
-        ease: 'easeOutQuad'
-      });
-    });
-    return () => scope.revert();
-  }, []);
-
-  // Animate project cards when section enters viewport
-  useEffect(() => {
-    const sectionEl = projectsSectionRef.current;
-    if (!sectionEl) return;
-    const scope = createScope();
-
-    const run = () => {
-      const cards = sectionEl.querySelectorAll('.project-card');
-      scope.add(() => {
-        animate(cards, {
-          from: { opacity: 0, translateY: 16 },
-          to: { opacity: 1, translateY: 0 },
-          delay: (index) => index * 100,
-          duration: 550,
-          ease: 'easeOutCubic'
-        });
-      });
-    };
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          run();
-          io.disconnect();
-        }
-      });
-    }, { threshold: 0.2 });
-
-    io.observe(sectionEl);
-    return () => {
-      io.disconnect();
-      scope.revert();
-    };
-  }, []);
-
-  // Re-animate cards when filters change
-  useEffect(() => {
-    const sectionEl = projectsSectionRef.current;
-    if (!sectionEl) return;
-    const scope = createScope();
-    const cards = sectionEl.querySelectorAll('.project-card');
-    scope.add(() => {
-      animate(cards, {
-        from: { opacity: 0, translateY: 12 },
-        to: { opacity: 1, translateY: 0 },
-        delay: (index) => index * 80,
-        duration: 450,
-        ease: 'easeOutQuad'
-      });
-    });
-    return () => scope.revert();
-  }, [selectedSkill]);
-
-  // Modal pop-in animation on open
-  useEffect(() => {
-    const scope = createScope();
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
-      scope.add(() => {
-        animate('.modal-overlay', {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
-          duration: 200,
-          ease: 'linear'
-        });
-        animate('.modal-content', {
-          from: { opacity: 0, scale: 0.96, translateY: 8 },
-          to: { opacity: 1, scale: 1, translateY: 0 },
-          duration: 300,
-          ease: 'easeOutCubic'
-        });
-      });
     }
     return () => {
       document.body.style.overflow = '';
-      scope.revert();
     };
   }, [isModalOpen]);
-
-  // Filter projects by selected skill
-  const filteredProjects = selectedSkill
-    ? projects.filter(project => project.tags.includes(selectedSkill))
-    : projects;
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -365,14 +236,8 @@ const ProjectHomepage = () => {
     setSelectedProject(null);
   };
 
-  const handleScrollToProjects = () => {
-    if (projectsSectionRef.current) {
-      projectsSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
-    <div className="projects-page animate__animated animate__fadeIn">
+    <div className="projects-page">
       <div className="projects-container">
 
         {/* Hero Section 
@@ -389,21 +254,24 @@ const ProjectHomepage = () => {
         
 
         {/* Featured Projects */}
-        <section className="featured-projects" id="featured-projects" ref={projectsSectionRef}>
-          <h2>Featured Projects {selectedSkill && `(Filtered by: ${selectedSkill})`}</h2>
+        <section className="featured-projects" id="featured-projects">
+          <h2>Featured Projects</h2>
           <div className="projects-grid">
-            {filteredProjects.map(project => (
+            {projects.map(project => (
               <div 
                 key={project.id} 
                 className="project-card"
                 onClick={() => openModal(project)}
               >
-                <div 
-                  className="project-image"
-                  style={{
-                    backgroundImage: `url("${project.image}")`
-                  }}
-                ></div>
+                <div className="project-image">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="project-info">
                   <h3>{project.name}</h3>
                   <p>{project.description}</p>
@@ -451,9 +319,6 @@ const ProjectHomepage = () => {
               </div>
             ))}
 
-            {filteredProjects.length === 0 && (
-              <p className="no-projects">No projects found for "{selectedSkill}".</p>
-            )}
           </div>
         </section>
 
@@ -466,10 +331,14 @@ const ProjectHomepage = () => {
               <div className="modal-body">
                 {/* Image Section - 80% width */}
                 <div className="modal-image-section">
-                  <img 
-                    src={selectedProject.image} 
+                  <Image
+                    src={selectedProject.image}
                     alt={selectedProject.name}
                     className="modal-image"
+                    width={1200}
+                    height={720}
+                    sizes="(max-width: 900px) 100vw, 70vw"
+                    priority
                   />
                 </div>
                 
@@ -501,7 +370,7 @@ const ProjectHomepage = () => {
                         rel="noopener noreferrer"
                         className="modal-link github-link"
                       >
-                        <i className="fa-brands fa-github" /> GitHub
+                        GitHub
                       </a>
                     )}
                     
@@ -512,7 +381,7 @@ const ProjectHomepage = () => {
                         rel="noopener noreferrer"
                         className="modal-link live-link"
                       >
-                        <i className="fa-solid fa-rocket" /> Live Demo
+                        Live Demo
                       </a>
                     )}
                     
@@ -523,7 +392,7 @@ const ProjectHomepage = () => {
                         rel="noopener noreferrer"
                         className="modal-link video-link"
                       >
-                        <i className="fa-solid fa-video" /> Video Demo
+                        Video Demo
                       </a>
                     )}
                   </div>
