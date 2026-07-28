@@ -131,7 +131,7 @@ const projects = [
   {
     id: 10,
     name: "Garden AI",
-    description: "Garden AI is a full-stack plant discovery platform with personalized recommendations, AI gardening guidance, and a calm browsing experience powered by a knowledge-base-driven backend.",
+    description: "Garden AI is a full-stack plant discovery platform with personalized recommendations, AI gardening guidance, and a RAG-powered knowledge base for more grounded plant care answers.",
     image: "/garden-ai.svg",
     githubLink: "",
     livelink: "",
@@ -144,6 +144,7 @@ const projects = [
       "Express",
       "MongoDB",
       "AI/ML",
+      "RAG",
       "Tailwind",
       "REST APIs"
     ]
