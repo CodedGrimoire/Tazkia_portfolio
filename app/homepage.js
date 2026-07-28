@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import './homepage.css';
 import {
-  SiAmazonwebservices,
   SiDocker,
   SiExpress,
   SiGit,
@@ -26,6 +25,31 @@ import Contact from './contact/page';
 */
 import ProjectHomepage from './components/project';
 
+const AwsGlyph = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+    <path
+      d="M6 15.5C7.3 16.5 9.1 17 11.2 17C14.3 17 16.7 15.9 18.2 14"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+    />
+    <path
+      d="M8.2 11.8L10 7L11.8 11.8M8.8 10.3H11.2"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M13.2 11.8V7.4H15.3C16.4 7.4 17 8 17 8.9C17 9.5 16.7 10 16.2 10.2C16.9 10.4 17.3 11 17.3 11.7C17.3 12.7 16.5 13.4 15.2 13.4H13.2"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const Homepage = () => {
   const techStack = [
     { name: 'JavaScript', icon: SiJavascript },
@@ -43,7 +67,7 @@ const Homepage = () => {
     { name: 'Kubernetes', icon: SiKubernetes },
     { name: 'Tailwind CSS', icon: SiTailwindcss },
     { name: 'Git', icon: SiGit },
-    { name: 'AWS', icon: SiAmazonwebservices },
+    { name: 'AWS', icon: AwsGlyph },
   ];
   
   return (
