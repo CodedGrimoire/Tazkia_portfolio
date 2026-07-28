@@ -1,0 +1,32 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#0D1117"/>
+  <rect x="44" y="44" width="1112" height="812" rx="36" fill="url(#bg)"/>
+  <rect x="92" y="92" width="1016" height="108" rx="28" fill="#161B22"/>
+  <rect x="92" y="236" width="460" height="536" rx="32" fill="#111827" fill-opacity="0.94"/>
+  <rect x="584" y="236" width="524" height="250" rx="32" fill="#111827" fill-opacity="0.94"/>
+  <rect x="584" y="522" width="524" height="250" rx="32" fill="#111827" fill-opacity="0.94"/>
+  <rect x="128" y="128" width="176" height="18" rx="9" fill="#60A5FA"/>
+  <rect x="128" y="156" width="302" height="14" rx="7" fill="#9CA3AF" fill-opacity="0.78"/>
+  <rect x="128" y="284" width="148" height="18" rx="9" fill="#E5E7EB"/>
+  <rect x="128" y="326" width="244" height="14" rx="7" fill="#9CA3AF" fill-opacity="0.72"/>
+  <rect x="128" y="386" width="388" height="266" rx="26" fill="#0B1220"/>
+  <path d="M182 604V470H462" stroke="#4ADE80" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="182" cy="470" r="16" fill="#60A5FA"/>
+  <circle cx="322" cy="548" r="16" fill="#4ADE80"/>
+  <circle cx="462" cy="470" r="16" fill="#F59E0B"/>
+  <path d="M182 470L322 548L462 470" stroke="#A7F3D0" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="624" y="278" width="168" height="18" rx="9" fill="#E5E7EB"/>
+  <rect x="624" y="320" width="266" height="14" rx="7" fill="#9CA3AF" fill-opacity="0.72"/>
+  <rect x="624" y="368" width="200" height="76" rx="22" fill="#172135"/>
+  <rect x="852" y="368" width="200" height="76" rx="22" fill="#172135"/>
+  <rect x="624" y="564" width="194" height="18" rx="9" fill="#E5E7EB"/>
+  <rect x="624" y="608" width="384" height="100" rx="24" fill="#172135"/>
+  <text x="124" y="816" fill="#F3F4F6" font-family="Arial, sans-serif" font-size="44" font-weight="700">Hopper</text>
+  <text x="124" y="854" fill="#9CA3AF" font-family="Arial, sans-serif" font-size="24">Collaborative compute provisioning platform for university environments</text>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="44" x2="1120" y2="856" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+</svg>

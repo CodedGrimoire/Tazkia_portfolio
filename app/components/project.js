@@ -6,7 +6,7 @@ import Image from 'next/image';
 import './project.css';
 
 const projects = [
-     {
+  {
     id: 1,
     name: "Askoria",
     description: "Askoria is a full-stack web application that allows users to generate structured course outlines instantly. Users provide a course title and description, and the backend—powered by AI—returns a clear, organized outline of modules and lessons.",
@@ -107,6 +107,67 @@ const projects = [
       "UI/UX Design",
       "Axios"
     ]
+  },
+  {
+    id: 9,
+    name: "DataPilot AI",
+    description: "DataPilot AI is an AI spreadsheet workspace that turns natural-language questions into safe SQL, runs them on uploaded datasets, and returns dashboards, tables, and insights in a polished analytics interface.",
+    image: "/datapilot-ai.svg",
+    githubLink: "",
+    livelink: "",
+    videoLink: "",
+    type: "Full Stack Web App",
+    tags: [
+      "Next",
+      "TypeScript",
+      "FastAPI",
+      "PostgreSQL",
+      "AI/ML",
+      "SQL",
+      "Tailwind",
+      "Data Visualization"
+    ]
+  },
+  {
+    id: 10,
+    name: "Garden AI",
+    description: "Garden AI is a full-stack plant discovery platform with personalized recommendations, AI gardening guidance, and a calm browsing experience powered by a knowledge-base-driven backend.",
+    image: "/garden-ai.svg",
+    githubLink: "",
+    livelink: "",
+    videoLink: "",
+    type: "Full Stack Web App",
+    tags: [
+      "Next",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "AI/ML",
+      "Tailwind",
+      "REST APIs"
+    ]
+  },
+  {
+    id: 11,
+    name: "Hopper",
+    description: "Hopper is a collaborative full-stack compute provisioning platform for university environments, where students can launch isolated workspaces, access them through the web and SSH, and use credits under role-based institutional controls.",
+    image: "/hopper.svg",
+    githubLink: "https://github.com/CREVIOS/Hopper",
+    livelink: "https://hopper.farefin.com",
+    videoLink: "https://youtu.be/9BCcEsXJXi0",
+    reportLink: "/hopper.pdf",
+    type: "Collaborative Full Stack Platform",
+    tags: [
+      "SvelteKit",
+      "FastAPI",
+      "Go",
+      "PostgreSQL",
+      "Kubernetes",
+      "Keycloak",
+      "NATS",
+      "Testing"
+    ]
   }
 ];
 
@@ -205,6 +266,42 @@ const projectInsights = {
       "Reading-based recommendations.",
       "Social reading features.",
       "Performance optimization."
+    ]
+  },
+  "DataPilot AI": {
+    challenges: [
+      "Translating ambiguous natural-language questions into reliable SQL.",
+      "Keeping dataset queries safe while still supporting useful joins and aggregations.",
+      "Presenting dashboards, tables, and answers in one coherent workflow."
+    ],
+    plans: [
+      "Broader chart coverage and richer dashboard templates.",
+      "Persistent collaboration and dataset history.",
+      "Smarter semantic modeling for uploaded spreadsheet schemas."
+    ]
+  },
+  "Garden AI": {
+    challenges: [
+      "Balancing friendly UX with genuinely useful plant-care guidance.",
+      "Designing recommendation flows that still work when backend data is sparse.",
+      "Keeping retrieval-based gardening answers grounded in curated source material."
+    ],
+    plans: [
+      "Saved care plans and user dashboards.",
+      "Deeper AI chat and profile-aware plant guidance.",
+      "Expanded knowledge-base ingestion and recommendation quality."
+    ]
+  },
+  Hopper: {
+    challenges: [
+      "Coordinating a multi-service architecture across frontend, API, orchestration, identity, and cluster infrastructure.",
+      "Keeping provisioning, billing, and role-based access flows reliable under real deployment constraints.",
+      "Maintaining confidence across a large collaborative codebase with many moving parts."
+    ],
+    plans: [
+      "Stronger distributed rate limiting and staging validation.",
+      "More scalable multi-node deployment support.",
+      "Expanded platform observability and user assistance inside the dashboard."
     ]
   }
 };
@@ -393,6 +490,17 @@ const ProjectHomepage = () => {
                         className="modal-link video-link"
                       >
                         Video Demo
+                      </a>
+                    )}
+
+                    {selectedProject.reportLink && (
+                      <a 
+                        href={selectedProject.reportLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="modal-link live-link"
+                      >
+                        Report
                       </a>
                     )}
                   </div>
