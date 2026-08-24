@@ -55,10 +55,11 @@ html::after {
 
 /* Animated Tech Logos Background */
 .tech-logos {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  height: 100vh;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -69,7 +70,8 @@ html::after {
   color: rgba(255, 255, 255, 0.6);
   animation: glowFloat 40s infinite ease-in-out;
   filter: none;
-  opacity: 0.35;
+  opacity: 0.48;
+  will-change: transform, opacity;
 }
 
 .tech-logo svg {
@@ -90,7 +92,7 @@ html::after {
 }
 
 .database {
-  bottom: 20%;
+  top: 38%;
   left: 8%;
   animation-delay: -10s;
 }
@@ -102,28 +104,37 @@ html::after {
 }
 
 .gear {
-  bottom: 15%;
+  top: 62%;
   right: 6%;
   animation-delay: -20s;
 }
 
 .mobile {
-  top: 60%;
+  top: 72%;
   left: 3%;
   animation-delay: -25s;
 }
 
 .lightning {
-  bottom: 35%;
+  top: 34%;
   right: 3%;
   animation-delay: -12s;
 }
 
 .api {
   top: 45%;
-  left: 4%;
+  top: 78%;
+  right: 16%;
   animation-delay: -8s;
 }
+
+.tech-logo:nth-child(2) { animation-delay: -5s; }
+.tech-logo:nth-child(3) { animation-delay: -10s; }
+.tech-logo:nth-child(4) { animation-delay: -15s; }
+.tech-logo:nth-child(5) { animation-delay: -20s; }
+.tech-logo:nth-child(6) { animation-delay: -25s; }
+.tech-logo:nth-child(7) { animation-delay: -12s; }
+.tech-logo:nth-child(8) { animation-delay: -8s; }
 
 @keyframes glowFloat {
   0%, 100% {

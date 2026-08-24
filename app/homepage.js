@@ -97,7 +97,7 @@ const Homepage = () => {
         )}
       </AnimatePresence>
       {/* Animated Background Tech Logos */}
-      <div className="tech-logos">
+      <motion.div className="tech-logos" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25, duration: 0.8 }}>
         <div className="tech-logo code">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M7 8L3 12L7 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -157,7 +157,7 @@ const Homepage = () => {
             <circle cx="7" cy="7" r="1" fill="currentColor"/>
           </svg>
         </div>
-      </div>
+      </motion.div>
 <main className="main-content">
   <motion.div className="hero-section" initial="hidden" animate="show" variants={stagger}>
     <div className="hero-content">
