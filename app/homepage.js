@@ -1,5 +1,8 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import './homepage.css';
 import {
   SiDocker,
@@ -51,6 +54,14 @@ const AwsGlyph = (props) => (
 );
 
 const Homepage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setIsLoading(false), 650);
+    return () => window.clearTimeout(timeout);
+  }, []);
+
   const techStack = [
     { name: 'JavaScript', icon: SiJavascript },
     { name: 'TypeScript', icon: SiTypescript },
@@ -70,8 +81,21 @@ const Homepage = () => {
     { name: 'AWS', icon: AwsGlyph },
   ];
   
+  const reveal = reduceMotion
+    ? { hidden: { opacity: 1 }, show: { opacity: 1 } }
+    : { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } };
+  const stagger = { show: { transition: { staggerChildren: 0.07, delayChildren: 0.12 } } };
+
   return (
     <div className="homepage">
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div className="site-loader" initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45 }}>
+            <motion.div className="loader-mark" animate={reduceMotion ? {} : { rotate: 360 }} transition={{ duration: 1.1, repeat: Infinity, ease: 'linear' }} />
+            <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }}>Entering the digital realm</motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* Animated Background Tech Logos */}
       <div className="tech-logos">
         <div className="tech-logo code">
@@ -135,15 +159,15 @@ const Homepage = () => {
         </div>
       </div>
 <main className="main-content">
-  <div className="hero-section animate__animated animate__fadeInUp">
+  <motion.div className="hero-section" initial="hidden" animate="show" variants={stagger}>
     <div className="hero-content">
-      <h1>Welcome to My Digital Realm</h1>
+      <motion.h1 variants={reveal}>Welcome to My Digital Realm</motion.h1>
       <div className="items-box"> 
-        <div className="hero-text-block">
-          <p>
+        <motion.div className="hero-text-block" variants={stagger}>
+          <motion.p variants={reveal}>
             I'm Tazkia, a full-stack developer passionate about creating seamless web experiences, from intuitive frontend to robust backends, with a keen interest in AI and its impact on the future of technology.
-          </p>
-          <div className="hero-actions">
+          </motion.p>
+          <motion.div className="hero-actions" variants={reveal}>
             <a
               className="resume-btn"
               href="https://drive.google.com/file/d/1E2YcMSVDziZqE0nTX7KDLDPkrIAmaJ2M/view?usp=sharing"
@@ -153,9 +177,9 @@ const Homepage = () => {
             >
               Download Resume
             </a>
-          </div>
-        </div>
-        <div className="image-container">
+          </motion.div>
+        </motion.div>
+        <motion.div className="image-container" variants={reveal} whileHover={reduceMotion ? {} : { scale: 1.04, rotate: -2 }} transition={{ type: 'spring', stiffness: 240, damping: 18 }}>
           <Image
             src="/laptop.png"
             alt="Laptop"
@@ -164,36 +188,36 @@ const Homepage = () => {
             height={312}
             priority
           />
-        </div>
+        </motion.div>
       </div>
     </div> {/* Close hero-content */}
-  </div>   {/* Close hero-section */}
+  </motion.div>   {/* Close hero-section */}
 </main>
 
-      <section className="tech-section">
+      <motion.section className="tech-section" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }} variants={reveal}>
         <div className="section-header">
           <p className="section-kicker">Technologies</p>
           <h2 className="section-title">My Tech Stack</h2>
         </div>
-        <div className="tech-grid">
+        <motion.div className="tech-grid" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }} variants={stagger}>
           {techStack.map((tech) => {
             const Icon = tech.icon;
 
             return (
-            <div className="tech-card" key={tech.name}>
+            <motion.div className="tech-card" key={tech.name} variants={reveal} whileHover={reduceMotion ? {} : { y: -7, scale: 1.025 }} transition={{ type: 'spring', stiffness: 300, damping: 22 }}>
               <div className="tech-icon-circle" aria-label={tech.name}>
                 <Icon className="tech-logo-image" aria-hidden="true" />
               </div>
               <p className="tech-name">{tech.name}</p>
-            </div>
+            </motion.div>
           )})}
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* Technical Skills - right below My Tech Stack */}
-      <section className="skillset-section">
-        <div className="skills-section">
-          <h2>Technical Skills</h2>
+      <motion.section className="skillset-section" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }} variants={reveal}>
+        <motion.div className="skills-section" variants={stagger}>
+          <motion.h2 variants={reveal}>Technical Skills</motion.h2>
           <div className="skills-categories">
             <div className="skill-category">
               <h3 className="category-title">
@@ -277,8 +301,8 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <ProjectHomepage />
 

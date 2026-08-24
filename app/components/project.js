@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import './project.css';
 
 const projects = [
@@ -112,7 +113,7 @@ const projects = [
     id: 9,
     name: "DataPilot AI",
     description: "DataPilot AI is an AI spreadsheet workspace that turns natural-language questions into safe SQL, runs them on uploaded datasets, and returns dashboards, tables, and insights in a polished analytics interface.",
-    image: "/datapilot-ai.svg",
+    image: "/datapilot.png",
     githubLink: "",
     livelink: "",
     videoLink: "",
@@ -132,7 +133,7 @@ const projects = [
     id: 10,
     name: "Garden AI",
     description: "Garden AI is a full-stack plant discovery platform with personalized recommendations, AI gardening guidance, and a RAG-powered knowledge base for more grounded plant care answers.",
-    image: "/garden-ai.svg",
+    image: "/garden.png",
     githubLink: "",
     livelink: "",
     videoLink: "",
@@ -153,7 +154,7 @@ const projects = [
     id: 11,
     name: "Hopper",
     description: "Hopper is a collaborative full-stack compute provisioning platform for university environments, where students can launch isolated workspaces, access them through the web and SSH, and use credits under role-based institutional controls.",
-    image: "/hopper.svg",
+    image: "/hopper.png",
     githubLink: "https://github.com/CREVIOS/Hopper",
     livelink: "https://hopper.farefin.com",
     videoLink: "https://youtu.be/9BCcEsXJXi0",
@@ -313,6 +314,7 @@ const ProjectHomepage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const reduceMotion = useReducedMotion();
   useEffect(() => setIsMounted(true), []);
 
   useEffect(() => {
@@ -354,14 +356,19 @@ const ProjectHomepage = () => {
         {/* Featured Projects */}
         <section className="featured-projects" id="featured-projects">
           <h2>Featured Projects</h2>
-          <div className="projects-grid">
+          <motion.div className="projects-grid" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.08 }} variants={{ show: { transition: { staggerChildren: 0.08 } } }}>
             {projects.map(project => (
-              <div 
+              <motion.div
                 key={project.id} 
                 className="project-card"
                 onClick={() => openModal(project)}
+                initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+                variants={{ show: { opacity: 1, y: 0 } }}
+                whileHover={reduceMotion ? {} : { y: -8, scale: 1.012 }}
+                whileTap={reduceMotion ? {} : { scale: 0.985 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 24 }}
               >
-                <div className="project-image">
+                <motion.div className="project-image" layoutId={`project-image-${project.id}`}>
                   <Image
                     src={project.image}
                     alt={project.name}
@@ -369,7 +376,7 @@ const ProjectHomepage = () => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     loading="lazy"
                   />
-                </div>
+                </motion.div>
                 <div className="project-info">
                   <h3>{project.name}</h3>
                   <p>{project.description}</p>
@@ -414,21 +421,23 @@ const ProjectHomepage = () => {
                   )}
                 </div>
                 <div className="hover-hint">click to expand</div>
-              </div>
+              </motion.div>
             ))}
 
-          </div>
+          </motion.div>
         </section>
 
         {/* Modal */}
-        {isMounted && isModalOpen && selectedProject && createPortal(
-          <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={closeModal}>✕</button>
+        {isMounted && createPortal(
+          <AnimatePresence>
+            {isModalOpen && selectedProject && (
+            <motion.div className="modal-overlay" onClick={closeModal} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div className="modal-content" onClick={(e) => e.stopPropagation()} initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 40, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.98 }} transition={{ type: 'spring', stiffness: 260, damping: 26 }}>
+              <motion.button className="modal-close" onClick={closeModal} whileHover={reduceMotion ? {} : { rotate: 90, scale: 1.08 }} whileTap={reduceMotion ? {} : { scale: 0.9 }}>✕</motion.button>
               
               <div className="modal-body">
                 {/* Image Section - 80% width */}
-                <div className="modal-image-section">
+                <motion.div className="modal-image-section" layoutId={`project-image-${selectedProject.id}`}>
                   <Image
                     src={selectedProject.image}
                     alt={selectedProject.name}
@@ -438,7 +447,7 @@ const ProjectHomepage = () => {
                     sizes="(max-width: 900px) 100vw, 70vw"
                     priority
                   />
-                </div>
+                </motion.div>
                 
                 {/* Info Section - 20% width */}
                 <div className="modal-info-section">
@@ -528,8 +537,10 @@ const ProjectHomepage = () => {
                   )}
                 </div>
               </div>
-            </div>
-          </div>,
+            </motion.div>
+          </motion.div>
+            )}
+          </AnimatePresence>,
           document.body
         )}
       </div>

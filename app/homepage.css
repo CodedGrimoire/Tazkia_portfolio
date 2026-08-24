@@ -29,6 +29,30 @@ html::after {
   isolation: isolate;
 }
 
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 16px;
+  background: #14191f;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.loader-mark {
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  border-top-color: #7b68ee;
+  border-right-color: #4a90e2;
+  border-radius: 50%;
+}
+
 /* Animated Tech Logos Background */
 .tech-logos {
   position: absolute;
@@ -400,6 +424,10 @@ html::after {
   box-shadow: 0 15px 45px rgba(123, 104, 238, 0.2);
 }
 
+.tech-card {
+  will-change: transform;
+}
+
 .tech-icon-circle {
   width: 86px;
   height: 86px;
@@ -626,6 +654,15 @@ html::after {
   border-color: rgba(123, 104, 238, 0.5);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(123, 104, 238, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
 }
 
 /* Glassmorphism Footer */
