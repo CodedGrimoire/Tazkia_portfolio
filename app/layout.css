@@ -14,12 +14,77 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --violet-soft: #a78bfa;
+  --violet-light: #8b5cf6;
+  --violet-bright: #7c3aed;
+  --violet-deep: #5b21b6;
+}
+
 /* App layout */
 .app-layout {
   min-height: 100vh;
   width: 100%;
-  background-color: #14191f;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(139, 92, 246, 0.1), transparent 28rem),
+    radial-gradient(circle at 88% 84%, rgba(124, 58, 237, 0.08), transparent 30rem),
+    #14191f;
   overflow-x: hidden;
+}
+
+/* Brighter violet accents across the existing dark-glass theme. */
+.logo-icon,
+.nav-links a:hover,
+.nav-links a.active,
+.homepage .section-kicker,
+.job-title,
+.category-title,
+.skill-card-title,
+.type-badge,
+.modal-type-badge {
+  color: var(--violet-soft) !important;
+}
+
+.logo-section h2,
+.hero-content h1,
+.section-title,
+.skills-section h2,
+.projects-page .hero-content h1,
+.modal-header h2 {
+  background-image: linear-gradient(135deg, #ffffff 0%, var(--violet-soft) 42%, var(--violet-light) 74%, #6e8cff 100%) !important;
+}
+
+.projects-page .featured-projects h2 {
+  background-image: none !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.resume-btn,
+.cta-btn,
+.modal-link.live-link {
+  background: linear-gradient(135deg, var(--violet-light) 0%, var(--violet-bright) 55%, #5f9cf5 100%) !important;
+  box-shadow: 0 8px 24px rgba(139, 114, 255, 0.38) !important;
+}
+
+.resume-btn:hover,
+.cta-btn:hover,
+.modal-link.live-link:hover {
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.48) !important;
+}
+
+.nav-links a::after,
+.type-badge,
+.modal-type-badge,
+.skill-tag,
+.tech-icon-circle {
+  border-color: rgba(167, 139, 250, 0.55) !important;
+}
+
+.skill-tag,
+.type-badge,
+.modal-type-badge {
+  background-color: rgba(124, 58, 237, 0.2) !important;
 }
 
 .layout-container {
