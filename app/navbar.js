@@ -1,7 +1,19 @@
+"use client";
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './navbar.css';
 
 const Navbar = () => {
+  const pathname = usePathname();
+
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/bio', label: 'About' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/contact', label: 'Contact' },
+  ];
+
   return (
     <header className="header">
       <div className="logo-section">
@@ -19,10 +31,15 @@ const Navbar = () => {
       </div>
       <nav className="nav-section">
         <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/bio">About</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/contact">Contact</Link>
+          {navItems.map(({ href, label }) => {
+            const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href);
+
+            return (
+              <Link href={href} className={isActive ? 'active' : undefined} aria-current={isActive ? 'page' : undefined} key={href}>
+                {label}
+              </Link>
+            );
+          })}
         </div>
         <div className="nav-actions">
           <div className="nav-social">
