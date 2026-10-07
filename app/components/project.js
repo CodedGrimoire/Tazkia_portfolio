@@ -170,6 +170,20 @@ const projects = [
       "NATS",
       "Testing"
     ]
+  },
+  {
+    id: 12,
+    name: "Hanging Passenger",
+    description: "An AI/ML project documented in the attached project report.",
+    image: "/olap-analysis.png",
+    githubLink: "",
+    livelink: "",
+    videoLink: "",
+    reportLink: "/hanging-passenger.pdf",
+    type: "AI/ML Project",
+    tags: [
+      "AI/ML"
+    ]
   }
 ];
 
@@ -304,6 +318,14 @@ const projectInsights = {
       "Stronger distributed rate limiting and staging validation.",
       "More scalable multi-node deployment support.",
       "Expanded platform observability and user assistance inside the dashboard."
+    ]
+  },
+  "Hanging Passenger": {
+    challenges: [
+      "Documented in the attached project report."
+    ],
+    plans: [
+      "Add a live demo and source repository when available."
     ]
   }
 };
