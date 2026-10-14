@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="50" y1="20" x2="1150" y2="700" gradientUnits="userSpaceOnUse"><stop stop-color="#151A2B"/><stop offset="1" stop-color="#292343"/></linearGradient>
+    <linearGradient id="bus" x1="490" y1="230" x2="1050" y2="540" gradientUnits="userSpaceOnUse"><stop stop-color="#897AFF"/><stop offset="1" stop-color="#4CC4D4"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A79AFF"/><stop offset="1" stop-color="#56D0DE"/></linearGradient>
+    <filter id="glow" x="420" y="170" width="700" height="500" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="28"/></filter>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+  <circle cx="810" cy="410" r="230" fill="#8576FF" opacity=".14" filter="url(#glow)"/>
+  <text x="74" y="112" fill="#A99EFF" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="4">RESEARCH · COMPUTER VISION</text>
+  <text x="74" y="205" fill="#FFF" font-family="Arial,sans-serif" font-size="46" font-weight="700">Hanging Passenger</text>
+  <text x="77" y="253" fill="#BAC3DA" font-family="Arial,sans-serif" font-size="20">Machine learning for transit safety</text>
+  <path d="M77 294h285" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+  <text x="77" y="354" fill="#E1E5F4" font-family="Arial,sans-serif" font-size="17">Classify public transport scenes</text>
+  <text x="77" y="389" fill="#E1E5F4" font-family="Arial,sans-serif" font-size="17">Safe / normal · Unsafe / risky</text>
+  <g transform="translate(430 180)">
+    <path d="M78 71c12-26 34-40 65-40h344c39 0 67 27 67 66v202H58V116c0-18 6-33 20-45Z" fill="url(#bus)" stroke="#C9C2FF" stroke-width="4"/>
+    <path d="M99 82c8-13 22-20 43-20h97v111H81v-57c0-13 6-25 18-34ZM259 62h110v111H259V62Zm132 0h91c24 0 41 15 41 39v72H391V62Z" fill="#17223A" stroke="#B7C8F5" stroke-width="3"/>
+    <path d="M80 193h467v31H80z" fill="#E7B95E" opacity=".95"/>
+    <path d="M80 239h467v50H80z" fill="#272847" opacity=".88"/>
+    <rect x="419" y="198" width="70" height="91" rx="5" fill="#171C32" stroke="#E7B95E" stroke-width="3"/>
+    <!-- passengers inside -->
+    <g fill="#DDE4F8"><circle cx="145" cy="139" r="13"/><path d="M126 158h38v49h-38z"/><circle cx="314" cy="137" r="13"/><path d="M294 156h40v51h-40z"/></g>
+    <!-- passenger beside the open doorway -->
+    <circle cx="520" cy="226" r="14" fill="#FF8B8B"/><path d="M507 244h26l15 42h-25l-8-20-5 30h-25l8-36Z" fill="#FF8B8B"/>
+    <path d="m517 292-8 29m17-29 13 26" stroke="#FF8B8B" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="516" cy="252" r="51" stroke="#FF828E" stroke-width="3" stroke-dasharray="7 8"/>
+    <circle cx="132" cy="305" r="37" fill="#111827" stroke="#AEB9D5" stroke-width="5"/><circle cx="132" cy="305" r="13" fill="#7E89A7"/>
+    <circle cx="472" cy="305" r="37" fill="#111827" stroke="#AEB9D5" stroke-width="5"/><circle cx="472" cy="305" r="13" fill="#7E89A7"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.5">
+    <rect x="507" y="576" width="145" height="42" rx="21" fill="#302A4D" stroke="#FF828E" stroke-opacity=".7"/><text x="579" y="602" fill="#FFB4B9" text-anchor="middle">UNSAFE / RISKY</text>
+    <rect x="672" y="576" width="137" height="42" rx="21" fill="#1C3745" stroke="#58D1BC" stroke-opacity=".7"/><text x="740" y="602" fill="#8BE6D5" text-anchor="middle">SCENE CLASS</text>
+  </g>
+  <text x="74" y="665" fill="#AAB4D0" font-family="Arial,sans-serif" font-size="14" letter-spacing="2">DHAKA BUS &amp; LEGUNA IMAGE STUDY</text>
+</svg>

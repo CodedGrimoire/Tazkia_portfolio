@@ -188,14 +188,14 @@ const researchWork = [
   {
     id: "research-hanging-passenger",
     name: "Hanging Passenger",
-    description: "A data warehousing study of the WideWorldImportersDW dataset, covering dimensional schema design and OLAP operations including CUBE, ROLLUP, and drill-down analysis.",
-    image: "/research-olap.svg",
+    description: "A computer-vision study that classifies Dhaka bus and leguna scenes as safe or unsafe for door-hanging travel. It compares HOG-based classical models with CNNs and pretrained vision models. On a 79-image test set, a ResNet50–ConvNeXt ensemble achieved 94.7% unsafe recall and 0.970 ROC-AUC; the report notes the small test set limits estimate precision.",
+    image: "/research-project.svg",
     githubLink: "",
     livelink: "",
     videoLink: "",
-    reportLink: "/hanging-passenger.pdf",
-    type: "Data Warehousing Research",
-    tags: ["OLAP", "Data Warehousing", "SQL Server", "Dimensional Modeling", "CUBE", "ROLLUP"]
+    reportLink: "/hanging%20passenger.pdf",
+    type: "Computer Vision Research",
+    tags: ["Machine Learning", "Computer Vision", "HOG", "CNN", "ResNet50", "ConvNeXt", "Public Transport Safety"]
   }
 ];
 
@@ -344,17 +344,6 @@ const projectInsights = {
       "Expanded platform observability and user assistance inside the dashboard."
     ]
   },
-  "Hanging Passenger": {
-    challenges: [
-      "Modeling the WideWorldImportersDW schema and its fact and dimension relationships.",
-      "Choosing OLAP queries that expose useful sales, purchasing, and inventory summaries.",
-      "Interpreting multidimensional results across different aggregation levels."
-    ],
-    plans: [
-      "Extend the analysis with additional dimensions and business questions.",
-      "Add clearer visual summaries of the warehouse schema and query results."
-    ]
-  }
 };
 // =========================
 // Main Component
@@ -499,7 +488,7 @@ const ProjectHomepage = () => {
                   <div className="project-type"><span className="type-badge">{project.type}</span></div>
                 </div>
                 <div className="project-links">
-                  {project.reportLink && <a href={project.reportLink} className="project-link-btn" target="_blank" rel="noopener noreferrer" onClick={event => event.stopPropagation()}>Read Paper</a>}
+                  {project.reportLink && <a href={project.reportLink} className="project-link-btn" target="_blank" rel="noopener noreferrer" onClick={event => event.stopPropagation()}>View Full Report ↗</a>}
                 </div>
                 <div className="hover-hint">click to expand</div>
               </motion.div>
@@ -590,7 +579,7 @@ const ProjectHomepage = () => {
                         rel="noopener noreferrer"
                         className="modal-link live-link"
                       >
-                        Report
+                        View Full Report
                       </a>
                     )}
                   </div>
