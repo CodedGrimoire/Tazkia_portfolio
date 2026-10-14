@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="36" x2="1110" y2="700" gradientUnits="userSpaceOnUse"><stop stop-color="#12182B"/><stop offset="1" stop-color="#20213D"/></linearGradient>
+    <linearGradient id="accent" x1="314" y1="194" x2="884" y2="536" gradientUnits="userSpaceOnUse"><stop stop-color="#8B7BFF"/><stop offset="1" stop-color="#43C6D9"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+  <circle cx="1030" cy="92" r="190" fill="#786AFF" opacity=".08"/><circle cx="146" cy="636" r="220" fill="#42C5D8" opacity=".06"/>
+  <text x="76" y="96" fill="#A99EFF" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="4">CODEBASE ARCHITECTURE INTELLIGENCE</text>
+  <text x="76" y="164" fill="white" font-family="Arial,sans-serif" font-size="54" font-weight="700">See how your code connects.</text>
+  <text x="78" y="207" fill="#AAB4D0" font-family="Arial,sans-serif" font-size="21">Offline analysis · dependency maps · evolution insights</text>
+  <g stroke="url(#accent)" stroke-width="3" opacity=".7">
+    <path d="M600 393 365 310M600 393 836 302M600 393 399 501M600 393 807 505M365 310 265 417M836 302 952 415M399 501 265 417M807 505 952 415"/>
+    <path d="M365 310 836 302M399 501 807 505" opacity=".35"/>
+  </g>
+  <g filter="url(#glow)"><circle cx="600" cy="393" r="48" fill="#272652" stroke="#A99EFF" stroke-width="3"/><path d="m582 394 13 13 25-29" stroke="#D8D3FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g fill="#202747" stroke="#56C9D9" stroke-width="2.5">
+    <rect x="308" y="275" width="114" height="68" rx="14"/><rect x="779" y="267" width="114" height="68" rx="14"/>
+    <rect x="342" y="467" width="114" height="68" rx="14"/><rect x="750" y="471" width="114" height="68" rx="14"/>
+    <rect x="208" y="383" width="114" height="68" rx="14"/><rect x="896" y="381" width="114" height="68" rx="14"/>
+  </g>
+  <g fill="#DCE4FF" font-family="Arial,sans-serif" font-size="15" font-weight="600" text-anchor="middle">
+    <text x="365" y="315">MODULE</text><text x="836" y="307">SERVICE</text><text x="399" y="507">PACKAGE</text><text x="807" y="511">MODEL</text><text x="265" y="423">DEPENDENCY</text><text x="953" y="421">GIT HISTORY</text>
+  </g>
+  <g fill="#9CA8C8" font-family="Arial,sans-serif" font-size="14"><text x="76" y="654">JAVA · TYPESCRIPT · JAVASCRIPT</text><text x="930" y="654">ARCHLENS</text></g>
+</svg>

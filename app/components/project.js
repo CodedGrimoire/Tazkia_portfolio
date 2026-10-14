@@ -8,6 +8,17 @@ import './project.css';
 
 const projects = [
   {
+    id: 13,
+    name: "ArchLens",
+    description: "A desktop architecture intelligence platform that maps dependencies, surfaces structural findings, and tracks how a codebase evolves. It analyzes Java, TypeScript, and JavaScript locally, with Git insights, a headless CLI, and portable reports.",
+    image: "/archlens.svg",
+    githubLink: "https://github.com/CodedGrimoire/ArchLens",
+    livelink: "",
+    videoLink: "",
+    type: "Java Desktop Application",
+    tags: ["Java 21", "JavaFX", "Maven", "Architecture Analysis", "Git Analytics", "CLI", "JSON", "HTML", "CSV"]
+  },
+  {
     id: 1,
     name: "Askoria",
     description: "Askoria is a full-stack web application that allows users to generate structured course outlines instantly. Users provide a course title and description, and the backend—powered by AI—returns a clear, organized outline of modules and lessons.",
@@ -171,23 +182,36 @@ const projects = [
       "Testing"
     ]
   },
+];
+
+const researchWork = [
   {
-    id: 12,
+    id: "research-hanging-passenger",
     name: "Hanging Passenger",
-    description: "An AI/ML project documented in the attached project report.",
-    image: "/olap-analysis.png",
+    description: "A data warehousing study of the WideWorldImportersDW dataset, covering dimensional schema design and OLAP operations including CUBE, ROLLUP, and drill-down analysis.",
+    image: "/research-olap.svg",
     githubLink: "",
     livelink: "",
     videoLink: "",
     reportLink: "/hanging-passenger.pdf",
-    type: "AI/ML Project",
-    tags: [
-      "AI/ML"
-    ]
+    type: "Data Warehousing Research",
+    tags: ["OLAP", "Data Warehousing", "SQL Server", "Dimensional Modeling", "CUBE", "ROLLUP"]
   }
 ];
 
 const projectInsights = {
+  ArchLens: {
+    challenges: [
+      "Building a shared architecture model across Java, TypeScript, and JavaScript.",
+      "Keeping analysis deterministic and offline while supporting useful Git history insights.",
+      "Making structural findings and impact paths explainable without overstating what the metrics mean."
+    ],
+    plans: [
+      "Add production TypeScript compiler integration.",
+      "Expand language coverage and method-level structural analysis.",
+      "Continue hardening persistent caching and optional explanation tooling."
+    ]
+  },
   Askoria: {
     challenges: [
       "Designing prompts that generate structured, balanced quizzes.",
@@ -322,10 +346,13 @@ const projectInsights = {
   },
   "Hanging Passenger": {
     challenges: [
-      "Documented in the attached project report."
+      "Modeling the WideWorldImportersDW schema and its fact and dimension relationships.",
+      "Choosing OLAP queries that expose useful sales, purchasing, and inventory summaries.",
+      "Interpreting multidimensional results across different aggregation levels."
     ],
     plans: [
-      "Add a live demo and source repository when available."
+      "Extend the analysis with additional dimensions and business questions.",
+      "Add clearer visual summaries of the warehouse schema and query results."
     ]
   }
 };
@@ -446,6 +473,37 @@ const ProjectHomepage = () => {
               </motion.div>
             ))}
 
+          </motion.div>
+        </section>
+
+        <section className="featured-projects research-work" id="research-work">
+          <h2>Research Work</h2>
+          <motion.div className="projects-grid" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.08 }} variants={{ show: { transition: { staggerChildren: 0.08 } } }}>
+            {researchWork.map(project => (
+              <motion.div
+                key={project.id}
+                className="project-card"
+                onClick={() => openModal(project)}
+                initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+                variants={{ show: { opacity: 1, y: 0 } }}
+                whileHover={reduceMotion ? {} : { y: -8, scale: 1.012 }}
+                whileTap={reduceMotion ? {} : { scale: 0.985 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 24 }}
+              >
+                <motion.div className="project-image" layoutId={`project-image-${project.id}`}>
+                  <Image src={project.image} alt={`${project.name} report cover`} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} loading="lazy" />
+                </motion.div>
+                <div className="project-info">
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+                  <div className="project-type"><span className="type-badge">{project.type}</span></div>
+                </div>
+                <div className="project-links">
+                  {project.reportLink && <a href={project.reportLink} className="project-link-btn" target="_blank" rel="noopener noreferrer" onClick={event => event.stopPropagation()}>Read Paper</a>}
+                </div>
+                <div className="hover-hint">click to expand</div>
+              </motion.div>
+            ))}
           </motion.div>
         </section>
 
