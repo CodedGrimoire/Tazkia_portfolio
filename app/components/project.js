@@ -125,8 +125,8 @@ const projects = [
     name: "DataPilot AI",
     description: "DataPilot AI is an AI spreadsheet workspace that turns natural-language questions into safe SQL, runs them on uploaded datasets, and returns dashboards, tables, and insights in a polished analytics interface.",
     image: "/datapilot.png",
-    githubLink: "",
-    livelink: "",
+    githubLink: "https://github.com/CodedGrimoire/NLtoSQLfrontend",
+    livelink: "https://datapilot-nine.vercel.app/",
     videoLink: "",
     type: "Full Stack Web App",
     tags: [
