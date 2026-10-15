@@ -202,9 +202,9 @@ const Bio = () => {
   </div>
   <div className="experience-details">
     <h3>Backend Engineer at Makebell</h3>
-    <p className="experience-period">2025 – Present</p>
+    <p className="experience-period">2025 – April 2026</p>
     <p>
-      Working at <b>Makebell</b>, a legal document configuring platform with AI. 
+      Worked at <b>Makebell</b>, a legal document configuring platform with AI. 
       Responsible for building scalable backend services, designing APIs, integrating AI-powered features, 
       and ensuring secure and efficient document management workflows.
     </p>
